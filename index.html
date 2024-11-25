@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junhua Yao</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #f6f8fa;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #24292e;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0366d6;
+        }
+
+        /* 主要内容样式 */
+        .container {
+            max-width: 1000px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        /* 各个部分的通用样式 */
+        section {
+            margin-bottom: 4rem;
+            padding-top: 60px; /* 为导航栏留出空间 */
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #24292e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0366d6;
+        }
+
+        /* Profile部分样式 */
+        .profile {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-info h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .motto {
+            font-style: italic;
+            color: #666;
+            margin: 1rem 0;
+            padding: 1rem;
+            border-left: 4px solid #0366d6;
+            background: #f8f9fa;
+        }
+
+        /* About Me部分样式 */
+        .about-content {
+            color: #24292e;
+            line-height: 1.8;
+        }
+
+        .about-content p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .language-divider {
+            margin: 2rem 0;
+            height: 1px;
+            background: #eaecef;
+        }
+
+        /* Research部分样式 */
+        .research-area {
+            margin-bottom: 2rem;
+        }
+
+        .research-area h3 {
+            color: #0366d6;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects部分样式 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f6f8fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+        }
+
+        /* Contact部分样式 */
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            color: #24292e;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-links {
+            margin-top: 1rem;
+        }
+
+        .contact-links a {
+            color: #0366d6;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-content p {
+                text-align: left;
+            }
+        }
+
+        .news-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Junhua Yao</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#projects">Projects</a>
+                <a href="#jottings">Jottings</a>
+                <a href="#news">News</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Home部分 -->
+        <section id="home">
+            <div class="profile">
+                <img src="self.jpg" alt="Junhua Yao" class="profile-image">
+                <div class="profile-info">
+                    <h1>Junhua Yao</h1>
+                    <div class="motto">
+                        "学术精神的本质恰恰是恢复人类的天真"
+                    </div>
+                    <div class="contact-info">
+                        <p>Email: junhuayao41@gmail.com</p>
+                        <p>GitHub: github.com/huashanjian</p>
+                        <div class="contact-links">
+                            <a href="mailto:junhuayao41@gmail.com">Email</a>
+                            <a href="https://github.com/huashanjian" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me部分 -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content en">
+                <p>
+                    Hi there! I'm Junhua Yao, a passionate and curious learner based in the dynamic city of Guangzhou. Currently a freshman pursuing my undergraduate degree, I'm thrilled to be exploring the fascinating world of Computer Science.
+                </p>
+                <p>
+                    I have a budding interest in cutting-edge technologies like Generative AI and Embodied AI, and while I'm just starting my academic journey, I'm eager to dive into research and deepen my understanding of these exciting fields.
+                </p>
+                <p>
+                    Right now, I'm sharpening my skills with tools and languages like PyTorch, C++, Python, LaTeX, and Git. It's been a rewarding challenge, and I'm enjoying every step of the process. I'm also familiar with tools like Zotero for managing research papers and references—small wins that make the learning journey smoother!
+                </p>
+                <p>
+                    Outside of academics, I'm all about staying active and exploring the world. Whether it's playing badminton, swimming, or planning my next travel adventure, I love discovering new places and experiencing different cultures. Traveling is a particular passion of mine, as it allows me to broaden my horizons and embrace the beauty of diversity.
+                </p>
+                <p>
+                    I'd love to connect! Feel free to reach out at junhuayao41@gmail.com if you'd like to chat about shared interests, potential collaborations, or just to say hi.
+                </p>
+            </div>
+            <div class="language-divider"></div>
+            <div class="about-content zh">
+                <!-- 中文版本将在这里添加 -->
+            </div>
+        </section>
+
+        <!-- Research部分 -->
+        <section id="research">
+            <h2 class="section-title">Research</h2>
+            <div class="research-area">
+                <h3>研究方向 1</h3>
+                <p>在这里描述您的第一个研究方向...</p>
+            </div>
+            <div class="research-area">
+                <h3>研究方向 2</h3>
+                <p>在这里描述您的第二个研究方向...</p>
+            </div>
+        </section>
+
+        <!-- Projects部分 -->
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>项目 1</h3>
+                    <p>项目描述...</p>
+                </div>
+                <!-- 添加更多项目 -->
+            </div>
+        </section>
+
+        <!-- Jottings部分 -->
+        <section id="jottings">
+            <h2 class="section-title">Jottings</h2>
+            <div class="jotting-content">
+                <!-- 在这里添加随想内容 -->
+            </div>
+        </section>
+
+        <!-- 动态内容部分 -->
+        <section id="news">
+            <h2 class="section-title">News</h2>
+            <div class="news-content">
+                <article class="news-item">
+                    <h3>动态标题 1</h3>
+                    <p class="news-date">2024年10月15日</p>
+                    <img src="dynamic1.jpg" alt="动态图片1" class="news-image">
+                    <p>这里是动态内容的简要描述...</p>
+                </article>
+                <article class="news-item">
+                    <h3>动态标题 2</h3>
+                    <p class="news-date">2024年10月10日</p>
+                    <img src="dynamic2.jpg" alt="动态图片2" class="news-image">
+                    <p>这里是动态内容的简要描述...</p>
+                </article>
+                <!-- 可以添加更多动态项目 -->
+            </div>
+        </section>
+
+        <!-- Contact部分 -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-info">
+                <p>Email: junhuayao41@gmail.com</p>
+                <p>GitHub: github.com/huashanjian</p>
+                <div class="contact-links">
+                    <a href="mailto:junhuayao41@gmail.com">Email</a>
+                    <a href="https://github.com/huashanjian" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

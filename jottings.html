@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junhua Yao</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #f6f8fa;
+        }
+
+        /* 顶部导航栏样式 */
+        .header {
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #eaecef;
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .site-title {
+            font-size: 1.5rem;
+            color: #24292e;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #24292e;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #0366d6;
+        }
+
+        /* 主要内容样式 */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #24292e;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #0366d6;
+        }
+
+        /* 随想文章样式 */
+        .jotting-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eaecef;
+        }
+
+        .jotting-item:last-child {
+            border-bottom: none;
+        }
+
+        .jotting-title {
+            font-size: 1.5rem;
+            color: #0366d6;
+            margin-bottom: 0.5rem;
+        }
+
+        .jotting-date {
+            font-size: 0.9rem;
+            color: #586069;
+            margin-bottom: 1rem;
+        }
+
+        .jotting-content {
+            color: #24292e;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .jotting-tags {
+            margin-top: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.2rem 0.8rem;
+            margin-right: 0.5rem;
+            background: #f1f8ff;
+            color: #0366d6;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="site-title">Junhua Yao</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="research.html">Research</a>
+                <a href="publications.html">Publications</a>
+                <a href="projects.html">Projects</a>
+                <a href="jottings.html">Jottings</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <h2 class="section-title">Jottings</h2>
+
+        <!-- 示例随想文章 -->
+        <div class="jotting-item">
+            <h3 class="jotting-title">关于人工智能的思考</h3>
+            <p class="jotting-date">2024年3月15日</p>
+            <div class="jotting-content">
+                <p>在研究生成式AI的过程中，我逐渐意识到...</p>
+                <p>这让我思考到技术发展与人文关怀的平衡...</p>
+            </div>
+            <div class="jotting-tags">
+                <span class="tag">AI</span>
+                <span class="tag">技术哲学</span>
+                <span class="tag">思考</span>
+            </div>
+        </div>
+
+        <div class="jotting-item">
+            <h3 class="jotting-title">学术之路的反思</h3>
+            <p class="jotting-date">2024年3月10日</p>
+            <div class="jotting-content">
+                <p>"学术精神的本质恰恰是恢复人类的天真"，这句话一直让我深思...</p>
+                <p>在追求知识的道路上，保持好奇心和探索欲望是多么重要...</p>
+            </div>
+            <div class="jotting-tags">
+                <span class="tag">学术</span>
+                <span class="tag">反思</span>
+                <span class="tag">成长</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

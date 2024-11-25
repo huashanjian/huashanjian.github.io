@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junhua Yao</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #24292e;
+            background-color: #f6f8fa;
+        }
+
+        /* 顶部导航栏样式 */
+        .header {
+            width: 100%;
+            background: white;
+            border-bottom: 1px solid #eaecef;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            color: #24292e;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #24292e;
+        }
+
+        /* 主要内容样式 */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: #24292e;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #0366d6;
+            padding-bottom: 0.5rem;
+        }
+
+        /* News 特定样式 */
+        .news-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eaecef;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            color: #586069;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .news-text {
+            flex: 1;
+        }
+
+        .news-image {
+            max-width: 300px;
+            border-radius: 4px;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .news-content {
+                flex-direction: column;
+            }
+
+            .news-image {
+                max-width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <a href="index.html" class="site-title">Junhua Yao</a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="news.html">News</a>
+            <a href="research.html">Research</a>
+            <a href="publications.html">Publications</a>
+            <a href="projects.html">Projects</a>
+            <a href="jottings.html">Jottings</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <h1 class="page-title">News</h1>
+
+        <!-- 新闻条目示例 -->
+        <div class="news-item">
+            <div class="news-date">2024年3月20日</div>
+            <div class="news-content">
+                <div class="news-text">
+                    <p>参加了XX学术会议，与来自全球的研究者交流讨论了最新的研究进展...</p>
+                </div>
+                <div class="news-image">
+                    <img src="path/to/conference-photo.jpg" alt="会议照片">
+                </div>
+            </div>
+        </div>
+
+        <div class="news-item">
+            <div class="news-date">2024年3月15日</div>
+            <div class="news-content">
+                <div class="news-text">
+                    <p>完成了新的研究项目，关于XX的研究取得了重要进展...</p>
+                </div>
+                <div class="news-image">
+                    <img src="path/to/research-photo.jpg" alt="研究照片">
+                </div>
+            </div>
+        </div>
+
+        <!-- 纯文字的新闻条目 -->
+        <div class="news-item">
+            <div class="news-date">2024年3月10日</div>
+            <div class="news-content">
+                <div class="news-text">
+                    <p>收到了XX期刊的论文录用通知...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
