@@ -57,11 +57,3 @@ I believe in the importance of thorough understanding and careful exploration be
 
 # 💻 Internships
 - Passionate about Embodied Intelligence, I am actively seeking opportunities to contribute to cutting-edge research through an internship. Excited about the possibility of joining a research team in this area.
-
-# ✍️ Recent Jottings
-<ul>
-  {% for jotting in site.jottings limit:3 %}
-    <li><a href="{{ jotting.url | relative_url }}">{{ jotting.title }}</a> - {{ jotting.date | date: "%Y-%m-%d" }}</li>
-  {% endfor %}
-</ul>
-<p>See <a href="{{ '/jottings/' | relative_url }}">all jottings...</a></p>
