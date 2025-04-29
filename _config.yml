@@ -6,11 +6,10 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Junhua Yao <br> 姚俊华" # 从你的 index.html <title> 获取
+title                    : "Junhua Yao" # 从你的 index.html <title> 获取
 description              : "Junhua Yao's personal academic homepage. Freshman exploring Computer Science, Generative AI, and Embodied AI ." # 根据你的 About Me 内容生成，你可以按需修改
 repository               : "huashanjian/huashanjian.github.io" # 根据你的 GitHub 用户名 huashanjian 推断，请确保这是你的 Pages 仓库名 (通常是 用户名.github.io)
 google_scholar_stats_use_cdn : true # 根据之前的说明保持 true
-theme                    : minimal-mistakes-jekyll # <--- 添加这一行
 
 # google analytics
 google_analytics_id      :  # 如果你有 Google Analytics ID，请填写在这里
@@ -22,7 +21,7 @@ baidu_site_verification  :  # 如果有 百度资源平台 验证码，填这里
 
 # Site Author (根据你的 index.html 内容填写)
 author:
-  name             : "Junhua Yao <br> 姚俊华" # 从你的 index.html <h1> 获取
+  name             : "Junhua Yao" # 从你的 index.html <h1> 获取
   avatar           : "images/self.jpg" # 你的头像是 self.jpg，请确保它在项目的 images 文件夹下。如果不在，请修改路径或移动文件。
   bio              : "学术精神的本质恰恰是恢复人类的天真。<br>At its heart, the academic spirit is about recapturing a childlike sense of wonder." # 从你的 index.html <div class="motto"> 获取，你也可以换成其他简介
   location         : "Guangzhou, China" # 从你的 About Me 内容推断
@@ -60,12 +59,6 @@ author:
   youtube          : # 留空
   wikipedia        : # 留空
 
-
-# Collections
-collections:
-  jottings:
-    output: true
-    permalink: /jottings/:path/
 
 # Reading Files (以下保持默认配置，除非你知道要改什么)
 include:

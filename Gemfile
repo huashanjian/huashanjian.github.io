@@ -15,7 +15,6 @@ gem "github-pages", group: :jekyll_plugins
 # To upgrade, run `bundle update`.
 
 # gem "jekyll"
-gem "minimal-mistakes-jekyll" # <--- 添加这一行
 
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
