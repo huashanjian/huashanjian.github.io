@@ -6,60 +6,61 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Lorem ipsum"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
-repository               : "RayeRen/acad-homepage.github.io"
-google_scholar_stats_use_cdn : true
+title                    : "Junhua Yao" # 从你的 index.html <title> 获取
+description              : "Junhua Yao's personal academic homepage. Freshman exploring Computer Science, Generative AI, and Embodied AI based in Guangzhou." # 根据你的 About Me 内容生成，你可以按需修改
+repository               : "huashanjian/huashanjian.github.io" # 根据你的 GitHub 用户名 huashanjian 推断，请确保这是你的 Pages 仓库名 (通常是 用户名.github.io)
+google_scholar_stats_use_cdn : true # 根据之前的说明保持 true
 
 # google analytics
-google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
+google_analytics_id      :  # 如果你有 Google Analytics ID，请填写在这里
 
 # SEO Related
-google_site_verification :  # get google_site_verification from https://search.google.com/search-console/about
-bing_site_verification   :  # get bing_site_verification from https://www.bing.com/webmasters/about
-baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.baidu.com/login/index?u=/site/index
+google_site_verification :  # 如果有 Google Search Console 验证码，填这里
+bing_site_verification   :  # 如果有 Bing Webmaster Tools 验证码，填这里
+baidu_site_verification  :  # 如果有 百度资源平台 验证码，填这里
 
-# Site Author
+# Site Author (根据你的 index.html 内容填写)
 author:
-  name             : "Lorem ipsum"
-  avatar           : "images/android-chrome-512x512.png"
-  bio              : "Lorem ipsum College"
-  location         : "Beijing, China"
-  employer         :
-  pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-  email            : "Lorem@ipsum.com"
-  researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
-  uri              :
-  bitbucket        :
-  codepen          :
-  dribbble         :
-  flickr           :
-  facebook         :
-  foursquare       :
-  github           : # e.g., "github username"
-  google_plus      :
-  keybase          :
-  instagram        :
-  impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
-  lastfm           :
-  linkedin         : # e.g., "linkedin username"
-  dblp             : # e.g., "https://dblp.org/pid/xx/xxxx.html"
-  orcid            : # e.g., "https://orcid.org/xxxx"
-  pinterest        :
-  soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
-  steam            :
-  tumblr           :
-  twitter          : 
-  vine             :
-  weibo            :
-  xing             :
-  youtube          :
-  wikipedia        :
+  name             : "Junhua Yao" # 从你的 index.html <h1> 获取
+  avatar           : "images/self.jpg" # 你的头像是 self.jpg，请确保它在项目的 images 文件夹下。如果不在，请修改路径或移动文件。
+  bio              : "学术精神的本质恰恰是恢复人类的天真" # 从你的 index.html <div class="motto"> 获取，你也可以换成其他简介
+  location         : "Guangzhou, China" # 从你的 About Me 内容推断
+  employer         : # 你是学生，可以留空或者填学校名称
+  pubmed           : # 留空
+  # !!! 重要：这里使用你之前提供的 Google Scholar ID !!!
+  googlescholar    : "https://scholar.google.com/citations?user=UwMitgEAAAAJ"
+  email            : "junhuayao41@gmail.com" # 从你的 index.html Contact 部分获取
+  researchgate     :  # 留空
+  uri              : # 留空
+  bitbucket        : # 留空
+  codepen          : # 留空
+  dribbble         : # 留空
+  flickr           : # 留空
+  facebook         : # 留空
+  foursquare       : # 留空
+  github           : "huashanjian" # 从你的 index.html Contact/Profile 部分获取 (只填用户名)
+  google_plus      : # 留空
+  keybase          : # 留空
+  instagram        : # 留空
+  impactstory      : # 留空
+  lastfm           : # 留空
+  linkedin         : # 留空
+  dblp             : # 留空
+  orcid            : # 留空
+  pinterest        : # 留空
+  soundcloud       : # 留空
+  stackoverflow    : # 留空
+  steam            : # 留空
+  tumblr           : # 留空
+  twitter          : "Junhua_Yao13" # 从你的 index.html Contact/Profile 部分获取 (只填用户名)
+  vine             : # 留空
+  weibo            : # 留空
+  xing             : # 留空
+  youtube          : # 留空
+  wikipedia        : # 留空
 
 
-# Reading Files
+# Reading Files (以下保持默认配置，除非你知道要改什么)
 include:
   - .htaccess
   - _pages
