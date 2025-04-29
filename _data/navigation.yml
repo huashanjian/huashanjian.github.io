@@ -12,11 +12,14 @@ main:
   - title: "Honors and Awards"
     url: "/#-honors-and-awards"
 
-  - title: "Educations"
-    url: "/#-educations"
+  # - title: "Educations" # Removed
+  #   url: "/#-educations" # Removed
 
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
+  # - title: "Invited Talks" # Removed
+  #   url: "/#-invited-talks" # Removed
 
   - title: "Internships"
     url: "/#-internships"
+
+  - title: "Jottings" # Added
+    url: "/jottings/" # Added - Points to the new Jottings page

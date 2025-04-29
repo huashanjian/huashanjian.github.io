@@ -60,6 +60,12 @@ author:
   wikipedia        : # 留空
 
 
+# Collections
+collections:
+  jottings:
+    output: true
+    permalink: /jottings/:path/
+
 # Reading Files (以下保持默认配置，除非你知道要改什么)
 include:
   - .htaccess
