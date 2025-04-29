@@ -107,12 +107,3 @@ h1:before, .anchor:before {
     background-color: #00369f;
     font-size: .8em;
 }
-
-
-/* Custom styles for fixing the sidebar */
-.sidebar.sticky {
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 20px; /* Adjust this value for desired top spacing */
-  align-self: start; /* Ensures the sticky element aligns to the start of its container */
-}
