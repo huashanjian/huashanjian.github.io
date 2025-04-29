@@ -27,10 +27,10 @@ Outside of academics, I'm all about staying active and exploring the world. Whet
 
 I'd love to connect! Feel free to reach out at junhuayao41@gmail.com if you'd like to chat about shared interests, potential collaborations, or just to say hi.
 
-### Research Interest: Embodied Intelligence
+## 💡 Research Interest: Embodied Intelligence
 As a beginner in Computer Science, I am deeply fascinated by the field of Embodied Intelligence. This area emphasizes that intelligent systems should develop cognitive capabilities through interaction with the physical world, an idea that greatly inspires me. Through reading relevant literature and engaging in academic discussions, I am gradually building my understanding of this field. I believe that research in embodied intelligence can not only help us develop more natural AI systems but also deepen our understanding of human cognition itself.
 
-My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
+My research interests primarily involve Embodied Intelligence and Generative AI. As I build my academic profile, you can follow my work on <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'>Google Scholar</a> (citations: <span id='total_cit'>...</span> <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 
 # 🔥 News
@@ -46,26 +46,9 @@ As a freshman in Computer Science, I am currently focusing on building a solid f
 
 I believe in the importance of thorough understanding and careful exploration before rushing into publications. My goal is to eventually contribute solid work that advances our understanding of embodied intelligence and brings genuine value to the research community.
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-</div>
-</div>
-
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
-
 # 🎖 Honors and Awards
-- *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- Currently, I am dedicated to establishing a solid academic base and contributing to meaningful projects. This section will be updated accordingly as I achieve future accomplishments.
 
-# 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-
-# 💬 Invited Talks
-- *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/)
 
 # 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+- Passionate about Embodied Intelligence, I am actively seeking opportunities to contribute to cutting-edge research through an internship. Excited about the possibility of joining a research team in this area.
