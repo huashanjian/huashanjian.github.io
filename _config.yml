@@ -21,7 +21,7 @@ baidu_site_verification  :  # 如果有 百度资源平台 验证码，填这里
 
 # Site Author (根据你的 index.html 内容填写)
 author:
-  name             : "Junhua Yao" # 从你的 index.html <h1> 获取
+  name             : "Junhua Yao <br> 姚俊华" # 从你的 index.html <h1> 获取
   avatar           : "images/self.jpg" # 你的头像是 self.jpg，请确保它在项目的 images 文件夹下。如果不在，请修改路径或移动文件。
   bio              : "学术精神的本质恰恰是恢复人类的天真。<br>At its heart, the academic spirit is about recapturing a childlike sense of wonder." # 从你的 index.html <div class="motto"> 获取，你也可以换成其他简介
   location         : "Guangzhou, China" # 从你的 About Me 内容推断
