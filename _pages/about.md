@@ -27,14 +27,19 @@ Outside of academics, I'm all about staying active and exploring the world. Whet
 
 I'd love to connect! Feel free to reach out at junhuayao41@gmail.com if you'd like to chat about shared interests, potential collaborations, or just to say hi.
 
-## 💡 Research Interest: Embodied Intelligence
-As a beginner in Computer Science, I am deeply fascinated by the field of Embodied Intelligence. This area emphasizes that intelligent systems should develop cognitive capabilities through interaction with the physical world, an idea that greatly inspires me. Through reading relevant literature and engaging in academic discussions, I am gradually building my understanding of this field. I believe that research in embodied intelligence can not only help us develop more natural AI systems but also deepen our understanding of human cognition itself.
+# 💡 Research Interest: Embodied Intelligence
+My interest in Embodied Intelligence is driven by the potential to create truly adaptive agents. I am keenly exploring advancements in:
+*   **World Models:** Believing that the ability to predict 'what happens next' is fundamental, I'm studying how agents learn these internal models to anticipate consequences and plan effectively.
+*   **Spatial Intelligence:** Fascinated by how humans and animals navigate and interact spatially, I'm learning about computational approaches for robots to build spatial understanding and perform tasks requiring geometric reasoning.
+*   **Reinforcement Learning for Robotics:** Investigating how RL algorithms can leverage learned world models and spatial representations to acquire complex skills more efficiently and safely on physical systems.
+
+Looking ahead, I am excited by the potential of combining learned **world models** and **spatial reasoning** to unlock higher-level cognitive abilities in robots, such as tool use, complex manipulation in cluttered scenes, and collaborative interaction in shared spaces.
 
 My research interests primarily involve Embodied Intelligence and Generative AI. As I build my academic profile, you can follow my work on <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'>Google Scholar</a> (citations: <span id='total_cit'>...</span> <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 
 # 🔥 News
-- *2025.03.15*:   Launched **AI101: Pioneering AI Education for Teens**, China's first open-access AI curriculum for secondary education. See the [Projects](projects.html#AI101) section for details. (Assuming a projects page exists)
+- *2025.03.15*:   Launched **AI101: Pioneering AI Education for Teens**, China's first open-access AI curriculum for secondary education. See the [Projects](https://github.com/huashanjian/AI-101) section for details.
 - *2025.02.09*:   Successfully completed my first surfing experience and obtained the L2 certification!
 - *2024.12.16*:   Attended the AI Computing Technical Committee Forum at HKUST(GZ).
 - *2024.11.29*:   Attended the Third AI4S International Symposium at PKU Shenzhen.
