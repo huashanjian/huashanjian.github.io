@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Junhua Yao" # 从你的 index.html <title> 获取
+title                    : "Junhua Yao <br> 姚俊华" # 从你的 index.html <title> 获取
 description              : "Junhua Yao's personal academic homepage. Freshman exploring Computer Science, Generative AI, and Embodied AI ." # 根据你的 About Me 内容生成，你可以按需修改
 repository               : "huashanjian/huashanjian.github.io" # 根据你的 GitHub 用户名 huashanjian 推断，请确保这是你的 Pages 仓库名 (通常是 用户名.github.io)
 google_scholar_stats_use_cdn : true # 根据之前的说明保持 true
