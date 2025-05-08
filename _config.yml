@@ -128,6 +128,12 @@ defaults:
       layout: default
       author_profile: true
 
+# Collections
+collections:
+  jottings:
+    output: true
+    permalink: /jottings/:path/
+
 
 # Sass/SCSS
 sass:

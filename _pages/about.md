@@ -45,6 +45,19 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
 - *2024.11.29*:   Attended the Third AI4S International Symposium at PKU Shenzhen.
 - *2024.11.14*:   Attended the X-Lake Forum on Embodied Intelligence at Tsinghua SIGS.
 
+# ✍️ Jottings
+{% assign jottings_list = site.jottings | sort: 'date' | reverse %}
+<ul>
+  {% for jotting in jottings_list limit:5 %}
+    <li>
+      <a href="{{ jotting.url | relative_url }}">{{ jotting.title }}</a> ({{ jotting.date | date: "%Y-%m-%d" }})
+    </li>
+  {% endfor %}
+</ul>
+{% if jottings_list.size > 5 %}
+  <p><a href="/all-jottings/">查看所有随笔...</a></p> 
+{% endif %}
+
 # 📝 Publications 
 
 As a freshman in Computer Science, I am currently focusing on building a solid foundation in my field. While I don't have any publications yet, I am passionate about conducting meaningful research that can make a real impact.
