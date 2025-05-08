@@ -45,7 +45,7 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
 - *2024.11.29*:   Attended the Third AI4S International Symposium at PKU Shenzhen.
 - *2024.11.14*:   Attended the X-Lake Forum on Embodied Intelligence at Tsinghua SIGS.
 
-# ✍️ 随笔
+# ✍️ Jottings
 {% assign jottings_list = site.jottings | sort: 'date' | reverse %}
 <div class="jottings-preview">
   {% for jotting in jottings_list limit:5 %}
@@ -56,7 +56,7 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
   {% endfor %}
   {% if jottings_list.size > 5 %}
     <div class="jotting-preview-more">
-      <a href="/all-jottings/">查看所有随笔 &raquo;</a>
+      <a href="/all-jottings/">All Jottings &raquo;</a>
     </div>
   {% endif %}
 </div>

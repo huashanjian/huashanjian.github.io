@@ -1,7 +1,7 @@
 ---
 permalink: /all-jottings/
-title: "所有随笔"
-excerpt: "所有随笔列表"
+title: "All Jottings"
+excerpt: "Collection of all jottings"
 author_profile: true
 ---
 
@@ -13,13 +13,13 @@ author_profile: true
         <a href="{{ jotting.url | relative_url }}">{{ jotting.title }}</a>
       </h2>
       <p class="jotting-date">
-        <time datetime="{{ jotting.date | date_to_xmlschema }}">{{ jotting.date | date: "%Y年%m月%d日" }}</time>
+        <time datetime="{{ jotting.date | date_to_xmlschema }}">{{ jotting.date | date: "%B %d, %Y" }}</time>
       </p>
       <div class="jotting-excerpt">
         {{ jotting.content | strip_html | truncate: 200 }}
       </div>
       <p class="jotting-read-more">
-        <a href="{{ jotting.url | relative_url }}">阅读全文 &raquo;</a>
+        <a href="{{ jotting.url | relative_url }}">Read More &raquo;</a>
       </p>
     </div>
   {% endfor %}
