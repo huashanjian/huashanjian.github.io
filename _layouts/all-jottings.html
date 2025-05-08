@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div class="jottings-archive">
+<div class="jottings-archive-page jottings-archive">
   <h1 class="page-title">{{ page.title }}</h1>
   
   {% assign jottings = site.jottings | sort: 'date' | reverse %}
@@ -26,4 +26,20 @@ layout: default
   <div class="jottings-nav">
     <a href="/" class="home-link">Back to Home</a>
   </div>
-</div> 
+</div>
+
+<style>
+  body {
+    background-color: #f5f7fa !important;
+  }
+  
+  #main {
+    padding: 2em;
+  }
+  
+  @media (max-width: 767px) {
+    #main {
+      padding: 1em;
+    }
+  }
+</style> 
