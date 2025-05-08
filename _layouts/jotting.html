@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div id="main" role="main">
+  <article class="jotting" itemscope itemtype="http://schema.org/Article">
+    <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+    {% if page.author %}<meta itemprop="author" content="{{ page.author }}">{% endif %}
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+
+    <div class="jotting__inner-wrap">
+      <header class="jotting__header">
+        <h1 class="jotting__title" itemprop="headline">{{ page.title }}</h1>
+        {% if page.date %}
+          <p class="jotting__meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {{ page.date | date: "%Y年%m月%d日" }}
+            </time>
+          </p>
+        {% endif %}
+      </header>
+
+      <section class="jotting__content" itemprop="articleBody">
+        {{ content }}
+      </section>
+    </div>
+  </article>
+</div> 

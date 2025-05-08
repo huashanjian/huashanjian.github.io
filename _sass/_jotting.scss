@@ -1,0 +1,94 @@
+.jotting {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.jotting__inner-wrap {
+  max-width: 760px; // 限制内容宽度，提高可读性
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;  // 移动设备上的边距
+  padding-right: 15px; // 移动设备上的边距
+}
+
+.jotting__header {
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #e8e8e8; // 苹果风格的细分割线
+}
+
+.jotting__title {
+  font-size: 2.5em; // 更大的标题
+  font-weight: 600; // 类似苹果的 San Francisco 字体粗细
+  line-height: 1.2;
+  margin-bottom: 0.25em;
+  color: #1d1d1f; // 苹果常用的深灰色
+}
+
+.jotting__meta {
+  font-size: 0.9em;
+  color: #6e6e73; // 苹果常用的次要文本颜色
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; // 系统字体栈，优先苹果字体
+}
+
+.jotting__content {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1.1em; // 略微增的正文字体大小
+  line-height: 1.7; // 增加行高以提高可读性
+  color: #333; // 深灰正文
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    color: #1d1d1f;
+    margin-top: 2em;
+    margin-bottom: 0.8em;
+    line-height: 1.3;
+  }
+  h1 { font-size: 1.8em; }
+  h2 { font-size: 1.6em; }
+  h3 { font-size: 1.4em; }
+  h4 { font-size: 1.2em; }
+
+  p {
+    margin-bottom: 1.2em;
+  }
+
+  a {
+    color: #007aff; // 苹果蓝
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  blockquote {
+    border-left: 3px solid #007aff; // 强调引用
+    padding-left: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: #555;
+  }
+
+  pre, code {
+    font-family: "SF Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
+    background-color: #f5f5f7; // 浅灰色背景
+    border-radius: 6px;
+  }
+  pre {
+    padding: 1em;
+    overflow-x: auto;
+  }
+  code {
+    padding: 0.2em 0.4em;
+    font-size: 0.9em;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; // 圆角图片
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+} 

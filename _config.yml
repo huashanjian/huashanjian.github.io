@@ -133,6 +133,7 @@ collections:
   jottings:
     output: true
     permalink: /jottings/:path/
+    layout: jotting
 
 
 # Sass/SCSS
