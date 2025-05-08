@@ -1,36 +1,179 @@
 ---
-layout: default
+layout: null
 ---
 
-<article class="jotting" itemscope itemtype="http://schema.org/Article">
-  <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
-  {% if page.author %}<meta itemprop="author" content="{{ page.author }}">{% endif %}
-  {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  {% include head.html %}
+  {% include head/custom.html %}
+  <style>
+    body {
+      background-color: #f5f7fa !important;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .jotting-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      display: flex;
+    }
+    
+    .jotting-sidebar {
+      flex: 0 0 250px;
+      margin-right: 2rem;
+    }
+    
+    .jotting-content {
+      flex: 1;
+      max-width: 800px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 2.5rem;
+    }
+    
+    .jotting-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #eaeaea;
+      text-align: center;
+    }
+    
+    .jotting-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 0.3rem;
+      color: #1a1a1a;
+    }
+    
+    .jotting-meta {
+      font-size: 0.95rem;
+      color: #777;
+      font-weight: 400;
+    }
+    
+    .jotting-body {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+    }
+    
+    .jotting-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eaeaea;
+    }
+    
+    .jotting-footer a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    
+    .jotting-footer a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+    
+    .jotting-navigation {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    .jotting-navigation a {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      background-color: rgba(0,123,255,0.1);
+      transition: all 0.2s ease;
+    }
+    
+    .jotting-navigation a:hover {
+      background-color: rgba(0,123,255,0.2);
+    }
+    
+    .jotting-navigation .home-link {
+      color: #28a745;
+      background-color: rgba(40,167,69,0.1);
+    }
+    
+    .jotting-navigation .home-link:hover {
+      background-color: rgba(40,167,69,0.2);
+      text-decoration: none;
+    }
+    
+    @media (max-width: 767px) {
+      .jotting-container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      
+      .jotting-sidebar {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        flex: 0 0 auto;
+      }
+      
+      .jotting-content {
+        padding: 1.5rem;
+      }
+      
+      .jotting-title {
+        font-size: 1.8rem;
+      }
+      
+      .jotting-body {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
 
-  <div class="jotting__inner-wrap">
-    <header class="jotting__header">
-      <h1 class="jotting__title" itemprop="headline">{{ page.title }}</h1>
-      {% if page.date %}
-        <p class="jotting__meta">
-          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {{ page.date | date: "%B %d, %Y" }}
-          </time>
-        </p>
-      {% endif %}
-    </header>
+<body class="layout--jotting">
+  {% include browser-upgrade.html %}
+  {% include masthead.html %}
 
-    <section class="jotting__content" itemprop="articleBody">
-      {{ content }}
-    </section>
+  <div class="jotting-container">
+    <div class="jotting-sidebar">
+      {% include sidebar.html %}
+    </div>
+    
+    <article class="jotting-content" itemscope itemtype="http://schema.org/Article">
+      <header class="jotting-header">
+        <h1 class="jotting-title" itemprop="headline">{{ page.title }}</h1>
+        {% if page.date %}
+          <p class="jotting-meta">
+            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {{ page.date | date: "%B %d, %Y" }}
+            </time>
+          </p>
+        {% endif %}
+      </header>
 
-    <footer class="jotting__footer">
-      <div class="jotting__back-to-top">
-        <a href="#" class="back-to-top-link">Back to top ↑</a>
-      </div>
-      <div class="jotting__navigation">
-        <a href="/all-jottings/" class="all-jottings-link">← All Jottings</a>
-        <a href="/" class="home-link">Home</a>
-      </div>
-    </footer>
+      <section class="jotting-body" itemprop="articleBody">
+        {{ content }}
+      </section>
+
+      <footer class="jotting-footer">
+        <div class="back-to-top">
+          <a href="#" class="back-to-top-link">Back to top ↑</a>
+        </div>
+        <div class="jotting-navigation">
+          <a href="/all-jottings/" class="all-jottings-link">← All Jottings</a>
+          <a href="/" class="home-link">Home</a>
+        </div>
+      </footer>
+    </article>
   </div>
-</article> 
+
+  {% include scripts.html %}
+  {% include footer/custom.html %}
+</body>
+</html> 
