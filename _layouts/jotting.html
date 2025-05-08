@@ -2,39 +2,41 @@
 layout: default
 ---
 
+{% include sidebar.html %}
+
 <div id="main" role="main">
-  {% include sidebar.html %}
-  
-  <article class="jotting" itemscope itemtype="http://schema.org/Article">
-    <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
-    {% if page.author %}<meta itemprop="author" content="{{ page.author }}">{% endif %}
-    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
+  <div class="jotting-container">
+    <article class="jotting" itemscope itemtype="http://schema.org/Article">
+      <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+      {% if page.author %}<meta itemprop="author" content="{{ page.author }}">{% endif %}
+      {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
 
-    <div class="jotting__inner-wrap">
-      <header class="jotting__header">
-        <h1 class="jotting__title" itemprop="headline">{{ page.title }}</h1>
-        {% if page.date %}
-          <p class="jotting__meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-              {{ page.date | date: "%B %d, %Y" }}
-            </time>
-          </p>
-        {% endif %}
-      </header>
+      <div class="jotting__inner-wrap">
+        <header class="jotting__header">
+          <h1 class="jotting__title" itemprop="headline">{{ page.title }}</h1>
+          {% if page.date %}
+            <p class="jotting__meta">
+              <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                {{ page.date | date: "%B %d, %Y" }}
+              </time>
+            </p>
+          {% endif %}
+        </header>
 
-      <section class="jotting__content" itemprop="articleBody">
-        {{ content }}
-      </section>
+        <section class="jotting__content" itemprop="articleBody">
+          {{ content }}
+        </section>
 
-      <footer class="jotting__footer">
-        <div class="jotting__back-to-top">
-          <a href="#" class="back-to-top-link">Back to top ↑</a>
-        </div>
-        <div class="jotting__navigation">
-          <a href="/all-jottings/" class="all-jottings-link">← All Jottings</a>
-          <a href="/" class="home-link">Home</a>
-        </div>
-      </footer>
-    </div>
-  </article>
+        <footer class="jotting__footer">
+          <div class="jotting__back-to-top">
+            <a href="#" class="back-to-top-link">Back to top ↑</a>
+          </div>
+          <div class="jotting__navigation">
+            <a href="/all-jottings/" class="all-jottings-link">← All Jottings</a>
+            <a href="/" class="home-link">Home</a>
+          </div>
+        </footer>
+      </div>
+    </article>
+  </div>
 </div> 

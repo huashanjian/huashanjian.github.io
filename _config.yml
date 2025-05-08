@@ -127,13 +127,22 @@ defaults:
     values:
       layout: default
       author_profile: true
+  # _jottings
+  - scope:
+      path: ""
+      type: jottings
+    values:
+      layout: jotting
+      author_profile: true
+      read_time: true
+      share: true
+      related: true
 
 # Collections
 collections:
   jottings:
     output: true
-    permalink: /jottings/:path/
-    layout: jotting
+    permalink: /:collection/:path/
 
 
 # Sass/SCSS
