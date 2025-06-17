@@ -71,5 +71,14 @@ I believe in the importance of thorough understanding and careful exploration be
 - Currently, I am dedicated to establishing a solid academic base and contributing to meaningful projects. This section will be updated accordingly as I achieve future accomplishments.
 
 
-# 💻 Internships
-- Passionate about Embodied Intelligence, I am actively seeking opportunities to contribute to cutting-edge research through an internship. Excited about the possibility of joining a research team in this area.
+# Experience
+<div class="experience-item" style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
+  <div class="experience-logo" style="flex: 0 0 120px; margin-right: 20px;">
+    <img src="/images/tea.jpg" alt="TEA Lab logo" style="width: 100px; border-radius: 5px;">
+  </div>
+  <div class="experience-details" style="flex: 1;">
+    <p style="margin: 0; font-size: 1.1em;"><strong><a href="http://hxu.rocks/" target="_blank">TEA Lab, Tsinghua University</a></strong></p>
+    <p style="margin: 0.2em 0;">Jun. 2025 - Present, Intern Researcher, Beijing, China</p>
+    <p style="margin: 0.2em 0;">Supervised by <a href="http://hxu.rocks/" target="_blank">Prof. Huazhe Xu (许华哲)</a></p>
+  </div>
+</div>
