@@ -50,7 +50,7 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
   </div>
   
   <div class="stats-center">
-    <img src="https://github-readme-stats-plum-zeta.vercel.app/api?username=huashanjian&show_icons=true&theme=ambient_gradient&hide_border=true&include_all_commits=true" alt="GitHub Activity" />
+    <img src="https://github-readme-stats-plum-zeta.vercel.app/api/pin/?username=huashanjian&repo=AI-101&theme=ambient_gradient&hide_border=true" alt="Featured Repository" />
   </div>
   
   <div class="stats-center">
