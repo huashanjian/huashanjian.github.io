@@ -42,19 +42,19 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
 <div class="github-stats-section">
   <div class="stats-grid">
     <div class="grid-item">
-      <img height="200" src="https://github-readme-stats.vercel.app/api?username=huashanjian&show_icons=true&theme=ambient_gradient&hide_border=true&include_all_commits=true&count_private=true&bg_color=0D1117&title_color=7C3AED&text_color=FFFFFF&icon_color=7C3AED" alt="GitHub Stats" />
+      <img height="200" src="https://github-readme-stats.vercel.app/api?username=huashanjian&show_icons=true&theme=ambient_gradient&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" />
     </div>
     <div class="grid-item">
-      <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=huashanjian&layout=compact&theme=ambient_gradient&hide_border=true&langs_count=8&bg_color=0D1117&title_color=7C3AED&text_color=FFFFFF" alt="Top Languages" />
+      <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=huashanjian&layout=compact&theme=ambient_gradient&hide_border=true&langs_count=8" alt="Top Languages" />
     </div>
   </div>
   
   <div class="stats-center">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=huashanjian&theme=ambient_gradient&hide_border=true&background=0D1117&stroke=7C3AED&ring=7C3AED&fire=7C3AED&currStreakLabel=FFFFFF&sideLabels=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF" alt="GitHub Streak" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=huashanjian&theme=ambient_gradient&hide_border=true" alt="GitHub Streak" />
   </div>
   
   <div class="stats-center">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=huashanjian&theme=github-compact&hide_border=true&area=true&bg_color=0D1117&color=7C3AED&line=7C3AED&point=FFFFFF&area_color=7C3AED" alt="GitHub Activity Graph" />
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=huashanjian&bg_color=35,4158d0,c850c0,ffcc70&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true" alt="GitHub Activity Graph" />
   </div>
 </div>
 
