@@ -54,7 +54,9 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
   </div>
   
   <div class="stats-center">
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=huashanjian&bg_color=35,4158d0,c850c0,ffcc70&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true" alt="GitHub Activity Graph" />
+    <div class="custom-contribution-graph">
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=huashanjian&bg_color=00000000&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true&custom_title=Contribution%20Graph" alt="GitHub Activity Graph" />
+    </div>
   </div>
 </div>
 

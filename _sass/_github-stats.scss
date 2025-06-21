@@ -156,6 +156,29 @@
     }
 }
 
+/* 自定义贡献图样式 */
+.custom-contribution-graph {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(35deg, #4158d0, #c850c0, #ffcc70);
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: 0 8px 24px rgba(65, 88, 208, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 32px rgba(200, 80, 192, 0.25);
+    }
+    
+    img {
+        display: block;
+        border-radius: 8px;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 /* 加载动画 */
 .stats-loading {
     display: inline-block;
