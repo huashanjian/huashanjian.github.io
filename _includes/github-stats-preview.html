@@ -1,0 +1,113 @@
+<!-- GitHub Statistics Preview Component -->
+<div class="github-stats-section">
+  <h1>GitHub Statistics</h1>
+  
+  <div class="stats-grid">
+    <div class="grid-item">
+      <img 
+        height="200" 
+        src="https://github-readme-stats.vercel.app/api?username={{ site.github.owner_name | default: 'huashanjian' }}&show_icons=true&theme=ambient_gradient&hide_border=true&include_all_commits=true&count_private=true&bg_color=0D1117&title_color=7C3AED&text_color=FFFFFF&icon_color=7C3AED" 
+        alt="GitHub Stats"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+    </div>
+    <div class="grid-item">
+      <img 
+        height="200" 
+        src="https://github-readme-stats.vercel.app/api/top-langs/?username={{ site.github.owner_name | default: 'huashanjian' }}&layout=compact&theme=ambient_gradient&hide_border=true&langs_count=8&bg_color=0D1117&title_color=7C3AED&text_color=FFFFFF" 
+        alt="Top Languages"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      />
+    </div>
+  </div>
+  
+  <div class="stats-center">
+    <img 
+      src="https://github-readme-streak-stats.herokuapp.com/?user={{ site.github.owner_name | default: 'huashanjian' }}&theme=ambient_gradient&hide_border=true&background=0D1117&stroke=7C3AED&ring=7C3AED&fire=7C3AED&currStreakLabel=FFFFFF&sideLabels=FFFFFF&currStreakNum=FFFFFF&sideNums=FFFFFF" 
+      alt="GitHub Streak"
+      loading="lazy"
+      onerror="this.style.display='none'"
+    />
+  </div>
+  
+  <div class="stats-center">
+    <img 
+      src="https://github-readme-activity-graph.vercel.app/graph?username={{ site.github.owner_name | default: 'huashanjian' }}&theme=github-compact&hide_border=true&area=true&bg_color=0D1117&color=7C3AED&line=7C3AED&point=FFFFFF&area_color=7C3AED" 
+      alt="GitHub Activity Graph"
+      loading="lazy"
+      onerror="this.style.display='none'"
+    />
+  </div>
+</div>
+
+<script>
+// 添加加载状态和错误处理
+document.addEventListener('DOMContentLoaded', function() {
+  const images = document.querySelectorAll('.github-stats-section img');
+  
+  images.forEach(img => {
+    // 添加加载状态
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'stats-loading-container';
+    loadingDiv.innerHTML = '<div class="loading-spinner"></div>';
+    
+    img.parentNode.insertBefore(loadingDiv, img);
+    img.style.display = 'none';
+    
+    // 图片加载成功
+    img.addEventListener('load', function() {
+      loadingDiv.style.display = 'none';
+      img.style.display = 'block';
+      img.classList.add('stats-card-animated');
+    });
+    
+    // 图片加载失败
+    img.addEventListener('error', function() {
+      loadingDiv.innerHTML = '<p style="color: #666; text-align: center;">统计图片加载失败</p>';
+    });
+  });
+});
+</script>
+
+<style>
+/* 内联样式确保组件独立工作 */
+.github-stats-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.03), rgba(0, 0, 0, 0.02));
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.github-stats-section h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.github-stats-section h1:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #7C3AED, #A855F7);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .github-stats-section {
+    padding: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .github-stats-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+}
+</style> 
