@@ -50,12 +50,12 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
   </div>
   
   <div class="stats-center">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=huashanjian&theme=ambient_gradient&hide_border=true" alt="GitHub Streak" />
+    <img src="https://streak-stats.demolab.com/?user=huashanjian&theme=ambient_gradient&hide_border=true" alt="GitHub Streak" />
   </div>
   
   <div class="stats-center">
     <div class="custom-contribution-graph">
-      <img src="https://github-readme-activity-graph.vercel.app/graph?username=huashanjian&bg_color=00000000&color=ffffff&line=ffffff&point=ffffff&area=true&hide_border=true&custom_title=Contribution%20Graph" alt="GitHub Activity Graph" />
+      <img src="https://github-readme-activity-graph.vercel.app/graph?username=huashanjian&theme=ambient_gradient&custom_title=Contribution%20Graph&hide_border=true" alt="GitHub Activity Graph" />
     </div>
   </div>
 </div>
