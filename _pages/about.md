@@ -37,6 +37,24 @@ Looking ahead, I am excited by the potential of combining learned **world models
 
 My research interests primarily involve Embodied Intelligence and Generative AI. As I build my academic profile, you can follow my work on <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'>Google Scholar</a> (citations: <span id='total_cit'>...</span> <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
+# 📊 GitHub Statistics
+
+<div class="github-stats-section">
+  <div class="stats-container">
+    <div class="stats-row">
+      <img class="stats-card" src="https://github-readme-stats.vercel.app/api?username=huashanjian&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" />
+      <img class="stats-card" src="https://github-readme-stats.vercel.app/api/top-langs/?username=huashanjian&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="Top Languages" />
+    </div>
+    
+    <div class="stats-row">
+      <img class="stats-card" src="https://github-readme-streak-stats.herokuapp.com/?user=huashanjian&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
+    </div>
+    
+    <div class="stats-row">
+      <img class="stats-card" src="https://github-readme-activity-graph.vercel.app/graph?username=huashanjian&theme=tokyo-night&hide_border=true&area=true" alt="GitHub Activity Graph" />
+    </div>
+  </div>
+</div>
 
 # 🔥 News
 - *2025.03.15*:   Launched **AI101: Pioneering AI Education for Teens**, China's first open-access AI curriculum for secondary education. See the [Projects](https://github.com/huashanjian/AI-101) section for details.

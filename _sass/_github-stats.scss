@@ -1,0 +1,170 @@
+/* GitHub Statistics Cards Styling */
+
+.github-stats-section {
+    margin: 2rem 0;
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--global-text-color, #333);
+        
+        &:before {
+            content: "📊 ";
+        }
+    }
+    
+    .stats-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .stats-card {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            }
+            
+            @media (max-width: 767px) {
+                max-width: 95%;
+            }
+        }
+        
+        .stats-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            
+            @media (min-width: 768px) {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+        }
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+    .github-stats-section {
+        .stats-container {
+            gap: 1rem;
+            
+            .stats-card {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+/* 暗色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .github-stats-section {
+        .stats-card {
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+            
+            &:hover {
+                box-shadow: 0 8px 16px rgba(255, 255, 255, 0.15);
+            }
+        }
+    }
+}
+
+/* 加载动画 */
+.stats-loading {
+    display: inline-block;
+    width: 400px;
+    height: 200px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 2s infinite;
+    border-radius: 8px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* GitHub徽章样式 */
+.github-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    
+    .badge {
+        transition: transform 0.2s ease;
+        
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+/* 统计网格布局 */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+    
+    .grid-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* 特殊效果 */
+.stats-highlight {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+        );
+        transition: left 0.8s;
+    }
+    
+    &:hover::before {
+        left: 100%;
+    }
+} 
