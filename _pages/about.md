@@ -42,15 +42,15 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
 <div class="github-stats-section">
   <div class="stats-grid">
     <div class="grid-item">
-      <img height="200" src="https://github-readme-stats-plum-zeta.vercel.app/api?username=huashanjian&show_icons=true&theme=ambient_gradient&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" />
+      <img height="200" src="https://github-readme-stats.vercel.app/api?username=huashanjian&show_icons=true&theme=ambient_gradient&hide_border=true&include_all_commits=true&count_private=true" alt="GitHub Stats" />
     </div>
     <div class="grid-item">
-      <img height="200" src="https://github-readme-stats-plum-zeta.vercel.app/api/top-langs/?username=huashanjian&layout=compact&theme=ambient_gradient&hide_border=true&langs_count=8" alt="Top Languages" />
+      <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=huashanjian&layout=compact&theme=ambient_gradient&hide_border=true&langs_count=8" alt="Top Languages" />
     </div>
   </div>
   
   <div class="stats-center">
-    <img src="https://github-readme-stats-plum-zeta.vercel.app/api/pin/?username=huashanjian&repo=AI-101&theme=ambient_gradient&hide_border=true" alt="Featured Repository" />
+    <img src="https://github-readme-stats.vercel.app/api/pin/?username=huashanjian&repo=AI-101&theme=ambient_gradient&hide_border=true" alt="Featured Repository" />
   </div>
   
   <div class="stats-center">
