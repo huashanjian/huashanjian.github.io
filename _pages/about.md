@@ -28,12 +28,15 @@ Outside of academics, I'm all about staying active and exploring the world. Whet
 I'd love to connect! Feel free to reach out at junhuayao41@gmail.com if you'd like to chat about shared interests, potential collaborations, or just to say hi.
 
 # 💡 Research Interest: Embodied Intelligence
-My interest in Embodied Intelligence is driven by the potential to create truly adaptive agents. I am keenly exploring advancements in:
-*   **World Models:** Believing that the ability to predict 'what happens next' is fundamental, I'm studying how agents learn these internal models to anticipate consequences and plan effectively.
-*   **Spatial Intelligence:** Fascinated by how humans and animals navigate and interact spatially, I'm learning about computational approaches for robots to build spatial understanding and perform tasks requiring geometric reasoning.
-*   **Reinforcement Learning for Robotics:** Investigating how RL algorithms can leverage learned world models and spatial representations to acquire complex skills more efficiently and safely on physical systems.
 
-Looking ahead, I am excited by the potential of combining learned **world models** and **spatial reasoning** to unlock higher-level cognitive abilities in robots, such as tool use, complex manipulation in cluttered scenes, and collaborative interaction in shared spaces.
+My interest in Embodied Intelligence is to build agents that understand and act in the physical world, not just predict it. I'm currently exploring:
+
+*   **Causality & Intuitive Physics:** Learning the cause–effect structure and key physical properties that govern interaction, to improve robustness, explanation, and generalization.
+*   **World Models:** Moving beyond next-step forecasting toward decision-grounded models that expose structure, support counterfactual reasoning, and remain reliable under distribution shift.
+*   **Spatial Intelligence:** Computational approaches for geometric understanding and spatial reasoning that enable long-horizon manipulation and navigation.
+*   **Reinforcement Learning for Robotics:** Data-efficient, safe policy learning on real systems, leveraging learned models and structure for faster skill acquisition and sim-to-real reliability.
+
+Looking ahead, I'm excited about combining causal structure, world models, and spatial reasoning to unlock higher-level abilities in robots—such as tool use, dexterous manipulation in cluttered scenes, and collaborative behaviors in shared spaces—while maintaining reliability and transfer across tasks, embodiments, and environments.
 
 My research interests primarily involve Embodied Intelligence and Generative AI. As I build my academic profile, you can follow my work on <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'>Google Scholar</a> (citations: <span id='total_cit'>...</span> <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
