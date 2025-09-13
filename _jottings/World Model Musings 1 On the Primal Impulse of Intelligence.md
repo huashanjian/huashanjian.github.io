@@ -1,4 +1,3 @@
-
 ---
 title: "World Models Musing 1: On the Origins of Thought and the Three Great Schools"
 date: 2025-09-13
