@@ -16,16 +16,15 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
+# May my work open new perspectives for you.
 
-Hi there! I'm Junhua Yao, a passionate and curious learner based in the dynamic city of Guangzhou. Currently a freshman pursuing my undergraduate degree, I'm thrilled to be exploring the fascinating world of Computer Science.
+I am Junhua Yao, a second-year undergraduate in Computer Science with a focus on embodied intelligence and world models. My interest lies in how agents perceive, abstract, and transfer knowledge across different bodies and environments.
 
-I have a budding interest in cutting-edge technologies like Generative AI and Embodied AI, and while I'm just starting my academic journey, I'm eager to dive into research and deepen my understanding of these exciting fields.
+I see science as a craft that values clarity over cleverness and patience over haste. A small honest experiment can speak more than a large system built for speed. I believe reproducibility is a form of honesty and that negative results deserve respect, for they reveal the edges of understanding. Abstraction only has meaning when its assumptions are visible, and writing should clarify thought rather than decorate it.
 
-Right now, I'm sharpening my skills with tools and languages like PyTorch, C++, Python, LaTeX, and Git. It's been a rewarding challenge, and I'm enjoying every step of the process. I'm also familiar with tools like Zotero for managing research papers and references—small wins that make the learning journey smoother!
+Science is not only for specialists. I regard communicating its ideas to the public as a natural duty. To make complex notions accessible is to protect curiosity itself, and to keep science connected with the world it serves.
 
-Outside of academics, I'm all about staying active and exploring the world. Whether it's playing badminton, swimming, or planning my next travel adventure, I love discovering new places and experiencing different cultures. Traveling is a particular passion of mine, as it allows me to broaden my horizons and embrace the beauty of diversity.
-
-I'd love to connect! Feel free to reach out at junhuayao41@gmail.com if you'd like to chat about shared interests, potential collaborations, or just to say hi.
+I welcome exchanges with those who share the wish to ask sharp questions and to think with care.
 
 # 💡 Research Interest: Embodied Intelligence
 
@@ -54,15 +53,14 @@ I warmly welcome you to explore my research interests and directions. As a learn
 
 I've prepared some thoughts and materials about world models specifically for non-specialists, hoping to share this fascinating field in an accessible way and offer you fresh perspectives. Whether you're an AI beginner, an interdisciplinary researcher, or simply someone curious about intelligence, I hope these resources will inspire your thinking and spark meaningful conversations.
 
-## 🌍 World Models & AI
+## 🌍 World Models 
 
-### **World Models: A Comprehensive Introduction**
+### **World Models: When Machines Begin to Imagine**
 *An accessible introduction to world models in AI, covering the philosophical foundations and practical implementations.*
 
 - **📊 Slides**: [View Slides](https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/view?usp=sharing) *(Google Drive)*
-- **📝 Related Writing**: [World Models Musing 1: On the Origins of Thought and the Three Great Schools](/jottings/World%20Model%20Musings%201%20On%20the%20Primal%20Impulse%20of%20Intelligence/)
 - **🎯 Target Audience**: Undergraduate students, AI enthusiasts
-- **⏱️ Duration**: ~45 minutes
+
 
 <div style="text-align: center; margin: 20px 0;">
 <iframe src="https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/preview" 
