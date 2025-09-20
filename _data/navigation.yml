@@ -18,11 +18,11 @@ main:
   #- title: "Invited Talks"
    # url: "/#-invited-talks"
 
+  - title: "Resources"
+    url: "/#-educational-resources--materials"
+
   - title: "Internships"
     url: "/#-internships"
-
-  - title: "Resources"
-    url: "/resources/"
     
   - title: "Jottings"
     url: "/all-jottings/"
