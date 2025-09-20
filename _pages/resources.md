@@ -14,10 +14,22 @@ Welcome to my collection of educational materials! Here you'll find slides, tuto
 ### **World Models: A Comprehensive Introduction**
 *An accessible introduction to world models in AI, covering the philosophical foundations and practical implementations.*
 
-- **📊 Slides**: [World Models Slides](https://docs.google.com/presentation/d/YOUR_GOOGLE_SLIDES_ID/edit?usp=sharing) *(Google Slides)*
+- **📊 Slides**: [View Slides](https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/view?usp=sharing) *(Google Drive)*
 - **📝 Related Writing**: [World Models Musing 1: On the Origins of Thought and the Three Great Schools](/jottings/World%20Model%20Musings%201%20On%20the%20Primal%20Impulse%20of%20Intelligence/)
 - **🎯 Target Audience**: Undergraduate students, AI enthusiasts
 - **⏱️ Duration**: ~45 minutes
+
+<div style="text-align: center; margin: 20px 0;">
+<iframe src="https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/preview" 
+        width="640" 
+        height="480" 
+        allow="autoplay" 
+        style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+</iframe>
+<p style="margin-top: 10px; font-size: 0.9em; color: #666;">
+<em>Preview of World Models Slides - Click <a href="https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/view?usp=sharing" target="_blank">here</a> for full-screen view</em>
+</p>
+</div>
 
 ---
 
