@@ -49,9 +49,9 @@ My research interests primarily involve Embodied Intelligence and Generative AI.
 
 # 📚 Educational Resources & Materials
 
-I warmly welcome you to explore my research interests and directions. As a learner venturing into the field of Embodied Intelligence, I'm deeply fascinated by the concept of world models—not only as a cutting-edge AI technology, but as a profound philosophical inquiry into the nature of intelligence itself.
+I warmly welcome you to explore my interests in Embodied Intelligence. My curiosity about world models is not only about their promise as an AI technique, but also about the deeper questions they pose on how intelligence perceives, imagines, and understands the world.
 
-I've prepared some thoughts and materials about world models specifically for non-specialists, hoping to share this fascinating field in an accessible way and offer you fresh perspectives. Whether you're an AI beginner, an interdisciplinary researcher, or simply someone curious about intelligence, I hope these resources will inspire your thinking and spark meaningful conversations.
+Here I share resources and reflections I have prepared for non-specialist readers. They are not complete or final, only a part of my own learning that I hope may open the field in an accessible way. Whether you are new to AI, working from another discipline, or simply curious about intelligence, I hope these materials offer you a fresh perspective and invite further conversation.
 
 ## 🌍 World Models 
 
@@ -64,8 +64,8 @@ I've prepared some thoughts and materials about world models specifically for no
 
 <div style="text-align: center; margin: 20px 0;">
 <iframe src="https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/preview" 
-        width="640" 
-        height="480" 
+        width="320" 
+        height="180" 
         allow="autoplay" 
         style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 </iframe>
