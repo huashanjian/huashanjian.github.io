@@ -64,8 +64,8 @@ Here I share resources and reflections I have prepared for non-specialist reader
 
 <div style="text-align: center; margin: 20px 0;">
 <iframe src="https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/preview" 
-        width="320" 
-        height="180" 
+        width="800" 
+        height="450" 
         allow="autoplay" 
         style="border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
 </iframe>
