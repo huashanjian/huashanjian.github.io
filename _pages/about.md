@@ -40,12 +40,16 @@ Looking ahead, I'm excited about combining causal structure, world models, and s
 My research interests primarily involve Embodied Intelligence and Generative AI. As I build my academic profile, you can follow my work on <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'>Google Scholar</a> (citations: <span id='total_cit'>...</span> <a href='https://scholar.google.com/citations?user=UwMitgEAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>).
 
 
+<span class='anchor' id='-news'></span>
+
 # 🔥 News
 - *2025.03.15*:   Launched **AI101: Pioneering AI Education for Teens**, China's first open-access AI curriculum for secondary education. See the [Projects](https://github.com/huashanjian/AI-101) section for details.
 - *2025.02.09*:   Successfully completed my first surfing experience and obtained the L2 certification!
 - *2024.12.16*:   Attended the AI Computing Technical Committee Forum at HKUST(GZ).
 - *2024.11.29*:   Attended the Third AI4S International Symposium at PKU Shenzhen.
 - *2024.11.14*:   Attended the X-Lake Forum on Embodied Intelligence at Tsinghua SIGS.
+
+<span class='anchor' id='-educational-resources--materials'></span>
 
 # 📚 Educational Resources & Materials
 
@@ -90,15 +94,21 @@ Here I share resources and reflections I have prepared for non-specialist reader
   {% endif %}
 </div>
 
+<span class='anchor' id='-publications'></span>
+
 # 📝 Publications 
 
 As a freshman in Computer Science, I am currently focusing on building a solid foundation in my field. While I don't have any publications yet, I am passionate about conducting meaningful research that can make a real impact.
 
 I believe in the importance of thorough understanding and careful exploration before rushing into publications. My goal is to eventually contribute solid work that advances our understanding of embodied intelligence and brings genuine value to the research community.
 
+<span class='anchor' id='-honors-and-awards'></span>
+
 # 🎖 Honors and Awards
 - Currently, I am dedicated to establishing a solid academic base and contributing to meaningful projects. This section will be updated accordingly as I achieve future accomplishments.
 
+
+<span class='anchor' id='-experience'></span>
 
 # Experience
 <div class="experience-item" style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
