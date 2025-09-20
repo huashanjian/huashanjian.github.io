@@ -11,6 +11,10 @@ Welcome to my collection of educational materials! Here you'll find slides, tuto
 
 ## 🌍 World Models & AI
 
+我很欢迎大家了解我的研究方向与兴趣。作为一名正在探索Embodied Intelligence领域的学习者，我深深着迷于世界模型这一概念——它不仅是AI技术的前沿，更是对智能本质的哲学思考。
+
+我为非专业人士准备了一些关于世界模型的思考和材料，希望能够以通俗易懂的方式分享这个fascinating的领域，并为您带来新的视角。无论您是AI初学者、跨领域研究者，还是单纯对智能感兴趣的朋友，我都希望这些内容能够启发您的思考。
+
 ### **World Models: A Comprehensive Introduction**
 *An accessible introduction to world models in AI, covering the philosophical foundations and practical implementations.*
 
