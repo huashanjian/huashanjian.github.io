@@ -110,7 +110,7 @@ I believe in the importance of thorough understanding and careful exploration be
 
 <span class='anchor' id='-experience'></span>
 
-# Experience
+# 💼 Experience
 <div class="experience-item" style="display: flex; align-items: flex-start; margin-bottom: 1.5rem;">
   <div class="experience-logo" style="flex: 0 0 120px; margin-right: 20px;">
     <img src="/images/tea.jpg" alt="TEA Lab logo" style="width: 100px; border-radius: 5px;">
