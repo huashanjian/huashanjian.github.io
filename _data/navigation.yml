@@ -20,3 +20,9 @@ main:
 
   - title: "Internships"
     url: "/#-internships"
+
+  - title: "Resources"
+    url: "/resources/"
+    
+  - title: "Jottings"
+    url: "/all-jottings/"
