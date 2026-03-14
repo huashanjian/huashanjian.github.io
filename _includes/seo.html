@@ -1,14 +1,15 @@
 <!-- begin SEO -->
-{% if site.url %}
-  {% assign seo_url = site.url %}
-{% endif %}
-{% assign seo_url = seo_url | default: site.github.url %}
-
-{% if site.url %}
-  {% assign canonical_url = page.url | replace: "index.html", "" | prepend: site.url %}
+{% assign seo_url = site.url | default: site.github.url %}
+{% assign seo_baseurl = site.baseurl | default: "" %}
+{% assign canonical_path = page.url | replace: "index.html", "" %}
+{% if seo_url %}
+  {% assign canonical_url = canonical_path | prepend: seo_baseurl | prepend: seo_url %}
 {% endif %}
 
-<title>{{ site.title }} - Homepage</title>
+{% assign seo_title = page.title | default: site.title %}
+{% assign seo_title = seo_title | markdownify | strip_html | strip_newlines | escape_once %}
+
+<title>{% if page.title %}{{ seo_title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
 {% assign seo_description = page.description | default: page.excerpt | default: site.description %}
 {% if seo_description %}
@@ -29,22 +30,43 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="en">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:title" content="{{ site.title }}">
-
-{% if seo_url %}
-  <link rel="canonical" href="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
-  <meta property="og:url" content="{{ page.url | prepend: seo_url | replace: "/index.html", "/" }}">
+{% assign og_type = "website" %}
+{% if page.collection == "jottings" or page.date %}
+  {% assign og_type = "article" %}
 {% endif %}
 
-{% if page.excerpt %}
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:title" content="{{ seo_title }}">
+<meta property="og:type" content="{{ og_type }}">
+
+{% if seo_url %}
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+{% endif %}
+
+{% if seo_description %}
+  <meta name="description" content="{{ seo_description }}">
   <meta property="og:description" content="{{ seo_description }}">
+{% endif %}
+
+{% if site.author.name %}
+  <meta name="author" content="{{ site.author.name | escape_once }}">
+{% endif %}
+
+{% if page.date %}
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:author" content="{{ site.author.name | escape_once }}">
+{% endif %}
+
+{% assign seo_modified = page.last_modified_at | default: page.date %}
+{% if seo_modified %}
+  <meta property="article:modified_time" content="{{ seo_modified | date_to_xmlschema }}">
 {% endif %}
 
 {% if site.twitter.username %}
   <meta name="twitter:site" content="@{{ site.twitter.username | replace: "@", "" }}">
-  <meta name="twitter:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
+  <meta name="twitter:title" content="{{ seo_title }}">
   <meta name="twitter:description" content="{{ seo_description }}">
   <meta name="twitter:url" content="{{ canonical_url }}">
 
@@ -71,5 +93,31 @@
 {% endif %}
 {% if site.baidu_site_verification %}
   <meta name="baidu-site-verification" content="{{ site.baidu_site_verification }}" />
+{% endif %}
+
+{% if page.collection == "jottings" and canonical_url %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": {{ seo_title | jsonify }},
+      "description": {{ seo_description | jsonify }},
+      "author": {
+        "@type": "Person",
+        "name": {{ site.author.name | jsonify }}
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": {{ site.author.name | jsonify }}
+      },
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "dateModified": "{{ seo_modified | date_to_xmlschema }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": {{ canonical_url | jsonify }}
+      },
+      "url": {{ canonical_url | jsonify }}
+    }
+  </script>
 {% endif %}
 <!-- end SEO -->

@@ -1,13 +1,14 @@
 ---
 title: "Diffusion Policy + RL: An Underrated Insight"
 date: 2026-03-12
+description: "Why diffusion policies fine-tuned with reinforcement learning work better than expected, through the lens of structured exploration, on-manifold search, and the geometry behind DPPO."
 ---
 
 # Diffusion Policy + RL: An Underrated Insight
 
 Something that shouldn't have worked... actually did?
 
-DPPO shows dramatically better sample efficiency across multiple benchmarks, and the training is stable. That's surprising. Diffusion likelihoods are intractable; standard Policy Gradient shouldn't work directly. So how is it this smooth?
+[DPPO](https://arxiv.org/abs/2409.00588) shows dramatically better sample efficiency across multiple benchmarks, and the training is stable. That's surprising. Diffusion likelihoods are intractable; standard Policy Gradient shouldn't work directly. So how is it this smooth?
 
 I recently came across a question on Zhihu: can diffusion policy be combined with RL?
 
@@ -41,7 +42,7 @@ For the mathematically inclined: it defines a forward process and a reverse proc
 
 Applied to robotics, the "photo" is an action sequence. During training, the model sees a bunch of human demonstrations and learns to denoise: starting from pure noise, iteratively recovering plausible actions.
 
-More concretely: a Diffusion Policy takes in the current observation (images, joint angles, etc.) and outputs a sequence of future actions. Chi et al. (2023) introduced a clever design called *action chunking*: rather than predicting one action per timestep, predict an entire action sequence and execute it smoothly. This captures temporal dependencies between actions. Picking up a cup isn't one action; it's a whole chain: reach, open fingers, approach, close, lift. Predicting these one at a time tends to be jittery; predicting them together is smooth.
+More concretely: a Diffusion Policy takes in the current observation (images, joint angles, etc.) and outputs a sequence of future actions. [Chi et al. (2023)](https://arxiv.org/abs/2303.04137) introduced a clever design called *action chunking*: rather than predicting one action per timestep, predict an entire action sequence and execute it smoothly. This captures temporal dependencies between actions. Picking up a cup isn't one action; it's a whole chain: reach, open fingers, approach, close, lift. Predicting these one at a time tends to be jittery; predicting them together is smooth.
 
 ![Action Chunking: predicting an entire action sequence rather than individual steps](/figures/diffusion-policy-meets-rl/action-chunking.svg)
 
@@ -111,7 +112,7 @@ Diffusion models learn the score function: $\nabla \log p(x)$. Geometrically, th
 
 Why? Because the score function points in the direction of steepest increase in probability density. If data lives on the manifold, moving away from it means probability collapses, so the score naturally pulls you back.
 
-Stanczuk et al. (2022) put it this way: when data concentrates near a low-dimensional manifold, in the small-noise limit, the score function points in the normal direction to the manifold.
+[Stanczuk et al. (2022)](https://arxiv.org/abs/2212.12611) put it this way: when data concentrates near a low-dimensional manifold, in the small-noise limit, the score function points in the normal direction to the manifold.
 
 In plain language: Diffusion doesn't just know "what data looks like"; it also knows "which direction leads away from the data." Imagine a sphere: at every point on the surface, there's a direction perpendicular to the surface, pointing outward. Diffusion learns exactly those "away" directions, which means it can pull deviant points back in.
 
@@ -383,7 +384,7 @@ Traditional RL models policies with Gaussians, so reweighting happens across the
 
 Diffusion is different. The distribution it learns is already concentrated on the data manifold. When RL reweights this distribution, the adjustments happen within the manifold, not scattered across the full space. This is where structured exploration's efficiency comes from: not fewer reweighting steps, but each step being more meaningful.
 
-A recent paper (De Santi et al., 2025) made this intuition more formal: framing exploration as entropy maximization on the data manifold.
+A recent paper, [De Santi et al. (2025)](https://arxiv.org/abs/2506.15385), made this intuition more formal: framing exploration as entropy maximization on the data manifold.
 
 Their idea: a pre-trained Diffusion model implicitly defines an approximate data manifold; exploration can be written as entropy maximization on that constrained region. The paper's experiments span text-to-image and other domains, not specifically robot fine-tuning.
 
@@ -427,28 +428,54 @@ Maybe this is the real ceiling of the Diffusion + RL paradigm: not an algorithm 
 
 *Written March 12, 2026*
 
+## How to Cite This Post
+
+If you want to reference this essay, cite the stable page URL rather than a local Markdown file:
+
+- Author: Junhua Yao
+- Title: "Diffusion Policy + RL: An Underrated Insight"
+- Published: March 12, 2026
+- Canonical URL: <https://huashanjian.github.io/jottings/diffusion-policy-meets-rl/>
+
+### Suggested reference
+
+Yao, J. (2026, March 12). *Diffusion Policy + RL: An Underrated Insight*. Junhua Yao. <https://huashanjian.github.io/jottings/diffusion-policy-meets-rl/>
+
+### BibTeX
+
+```bibtex
+@online{yao2026diffusionpolicyrl,
+  author = {Junhua Yao},
+  title = {Diffusion Policy + RL: An Underrated Insight},
+  date = {2026-03-12},
+  url = {https://huashanjian.github.io/jottings/diffusion-policy-meets-rl/},
+  langid = {english},
+  note = {Blog post}
+}
+```
+
 ## References
 
-1. Chi, C., Xu, Z., Feng, S., Cousineau, E., Du, Y., Burchfiel, B., Tedrake, R., & Song, S. (2023). Diffusion Policy: Visuomotor Policy Learning via Action Diffusion. arXiv:2303.04137
+1. Chi, C., Xu, Z., Feng, S., Cousineau, E., Du, Y., Burchfiel, B., Tedrake, R., & Song, S. (2023). *Diffusion Policy: Visuomotor Policy Learning via Action Diffusion*. [arXiv:2303.04137](https://arxiv.org/abs/2303.04137)
 
-2. Ren, A. Z., Lidard, J., Ankile, L. L., Simeonov, A., Agrawal, P., Majumdar, A., Burchfiel, B., Dai, H., & Simchowitz, M. (2024). Diffusion Policy Policy Optimization. arXiv:2409.00588
+2. Ren, A. Z., Lidard, J., Ankile, L. L., Simeonov, A., Agrawal, P., Majumdar, A., Burchfiel, B., Dai, H., & Simchowitz, M. (2024). *Diffusion Policy Policy Optimization*. [arXiv:2409.00588](https://arxiv.org/abs/2409.00588)
 
-3. Wang, Z., Hunt, J. J., & Zhou, M. (2022). Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning. arXiv:2208.06193
+3. Wang, Z., Hunt, J. J., & Zhou, M. (2022). *Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning*. [arXiv:2208.06193](https://arxiv.org/abs/2208.06193)
 
-4. Kang, B., Ma, X., Du, C., Pang, T., & Yan, S. (2023). Efficient Diffusion Policies for Offline Reinforcement Learning. arXiv:2305.20081
+4. Kang, B., Ma, X., Du, C., Pang, T., & Yan, S. (2023). *Efficient Diffusion Policies for Offline Reinforcement Learning*. [arXiv:2305.20081](https://arxiv.org/abs/2305.20081)
 
-5. Stanczuk, J., Batzolis, G., Deveney, T., & Schönlieb, C.-B. (2022). Your diffusion model secretly knows the dimension of the data manifold. arXiv:2212.12611
+5. Stanczuk, J., Batzolis, G., Deveney, T., & Schönlieb, C.-B. (2022). *Your diffusion model secretly knows the dimension of the data manifold*. [arXiv:2212.12611](https://arxiv.org/abs/2212.12611)
 
-6. Physical Intelligence. (2025). π0.6: a VLA That Learns From Experience. arXiv:2511.14759
+6. Physical Intelligence. (2025). *π0.6: a VLA That Learns From Experience*. [arXiv:2511.14759](https://arxiv.org/abs/2511.14759)
 
-7. Lipman, Y., Chen, R. T. Q., Ben-Hamu, H., Nickel, M., & Le, M. (2022). Flow Matching for Generative Modeling. arXiv:2210.02747
+7. Lipman, Y., Chen, R. T. Q., Ben-Hamu, H., Nickel, M., & Le, M. (2022). *Flow Matching for Generative Modeling*. [arXiv:2210.02747](https://arxiv.org/abs/2210.02747)
 
-8. De Santi, R., Vlastelica, M., Hsieh, Y.-P., Shen, Z., He, N., & Krause, A. (2025). Provable Maximum Entropy Manifold Exploration via Diffusion Models. arXiv:2506.15385
+8. De Santi, R., Vlastelica, M., Hsieh, Y.-P., Shen, Z., He, N., & Krause, A. (2025). *Provable Maximum Entropy Manifold Exploration via Diffusion Models*. [arXiv:2506.15385](https://arxiv.org/abs/2506.15385)
 
-9. Barceló, R., Alcázar, C., & Tobar, F. (2024). Avoiding mode collapse in diffusion models fine-tuned with reinforcement learning. arXiv:2410.08315
+9. Barceló, R., Alcázar, C., & Tobar, F. (2024). *Avoiding mode collapse in diffusion models fine-tuned with reinforcement learning*. [arXiv:2410.08315](https://arxiv.org/abs/2410.08315)
 
-10. Janner, M., Du, Y., Tenenbaum, J. B., & Levine, S. (2022). Planning with Diffusion for Flexible Behavior Synthesis. arXiv:2205.09991
+10. Janner, M., Du, Y., Tenenbaum, J. B., & Levine, S. (2022). *Planning with Diffusion for Flexible Behavior Synthesis*. [arXiv:2205.09991](https://arxiv.org/abs/2205.09991)
 
-11. Ajay, A., Du, Y., Gupta, A., Tenenbaum, J., Jaakkola, T., & Agrawal, P. (2023). Is Conditional Generative Modeling all you need for Decision-Making? arXiv:2211.15657
+11. Ajay, A., Du, Y., Gupta, A., Tenenbaum, J., Jaakkola, T., & Agrawal, P. (2023). *Is Conditional Generative Modeling all you need for Decision-Making?* [arXiv:2211.15657](https://arxiv.org/abs/2211.15657)
 
-12. Finzi, M., Qiu, S., Jiang, Y., Izmailov, P., Kolter, J. Z., & Wilson, A. G. (2026). From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence. arXiv:2601.03220
+12. Finzi, M., Qiu, S., Jiang, Y., Izmailov, P., Kolter, J. Z., & Wilson, A. G. (2026). *From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence*. [arXiv:2601.03220](https://arxiv.org/abs/2601.03220)
