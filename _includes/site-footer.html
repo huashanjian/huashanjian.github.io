@@ -1,0 +1,28 @@
+{% assign contact = site.data.home.contact %}
+
+<footer class="site-footer">
+  <div class="site-shell__inner site-footer__inner">
+    <div class="site-footer__copy">
+      <p class="section-kicker">Contact</p>
+      <h2 class="site-footer__title">{{ contact.title }}</h2>
+      <p class="site-footer__summary">{{ contact.summary }}</p>
+    </div>
+
+    <div class="site-footer__links">
+      {% for link in contact.links %}
+        {% if link.external %}
+          {% assign footer_href = link.url %}
+        {% else %}
+          {% assign footer_href = link.url | relative_url %}
+        {% endif %}
+        <a
+          class="button-link button-link--ghost"
+          href="{{ footer_href }}"
+          {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+        >
+          {{ link.label }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</footer>

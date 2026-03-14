@@ -1,28 +1,19 @@
-# main links links
-main:
-  - title: "About Me"
-    url: "/#about-me"
-
-  - title: "News"
-    url: "/#-news"
-
-  - title: "Publications"
-    url: "/#-publications"
-
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
-
-  #- title: "Educations"
-   # url: "/#-educations"
-
-  #- title: "Invited Talks"
-   # url: "/#-invited-talks"
-
+primary:
+  - title: "Intro"
+    url: "/#intro"
+  - title: "Research"
+    url: "/#research"
+  - title: "Outputs"
+    url: "/#outputs"
   - title: "Resources"
-    url: "/#-educational-resources--materials"
-
-  - title: "Experience"
-    url: "/#-experience"
-    
+    url: "/#resources"
   - title: "Jottings"
+    url: "/#jottings"
+  - title: "Experience"
+    url: "/#experience"
+
+secondary:
+  - title: "Resources page"
+    url: "/resources/"
+  - title: "All jottings"
     url: "/all-jottings/"

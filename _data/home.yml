@@ -1,0 +1,215 @@
+hero:
+  eyebrow: "Embodied intelligence, world models, and scientific clarity"
+  title: "I study how agents form internal worlds before they act in the physical one."
+  summary: "I'm Junhua Yao, a second-year computer science undergraduate exploring embodied intelligence, world models, spatial reasoning, and robust reinforcement learning for robotics."
+  chinese_line: "学术精神的本质恰恰是恢复人类的天真。"
+  chinese_gloss: "For me, scientific work begins by recovering a childlike sense of wonder."
+  avatar: "/images/self.jpg"
+  avatar_alt: "Portrait of Junhua Yao"
+  ctas:
+    - label: "Write me"
+      url: "mailto:junhuayao41@gmail.com"
+      external: true
+      style: "primary"
+    - label: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=UwMitgEAAAAJ"
+      external: true
+      style: "ghost"
+    - label: "Browse resources"
+      url: "/resources/"
+      external: false
+      style: "ghost"
+  quick_notes:
+    - "Intern Researcher, TEA Lab, Tsinghua University"
+    - "Building AI101 for open-access AI education"
+    - "Based in Guangzhou, collaborating through Beijing"
+  profile_links:
+    - label: "Email"
+      url: "mailto:junhuayao41@gmail.com"
+      external: true
+    - label: "Github"
+      url: "https://github.com/huashanjian"
+      external: true
+    - label: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=UwMitgEAAAAJ"
+      external: true
+    - label: "Twitter"
+      url: "https://twitter.com/Junhua_Yao13"
+      external: true
+
+intro:
+  label: "Intro"
+  title: "Research that tries to see structure before scale"
+  paragraphs:
+    - "I am drawn to questions where prediction alone feels insufficient. If an agent is going to act in the physical world, I want to know what structure it has learned, what assumptions it relies on, and how those assumptions survive contact with new bodies, tools, and environments."
+    - "That is why I keep returning to causality, world models, spatial intelligence, and data-efficient reinforcement learning. I care about systems that can imagine before acting, explain before overclaiming, and transfer across settings without treating every new task as a fresh start."
+    - "I also care deeply about communicating science in public. Teaching, writing, and building open materials are part of the research process for me, because clarity is not decoration. It is how we test whether an idea actually holds together."
+
+research:
+  label: "Research"
+  title: "Four threads I keep returning to"
+  lede: "Each thread starts from a practical robotics question, then moves downward into representation, abstraction, and transfer."
+
+research_threads:
+  - title: "Causal structure for embodied agents"
+    status: "Active question"
+    summary: "I want agents to tell apart what merely co-occurs from what actually changes the outcome of an interaction."
+    keywords: "causal representation learning, intervention-driven reasoning, physical understanding"
+    signals:
+      - "Why it matters: better robustness, sharper explanations, and fewer brittle shortcuts."
+      - "Representative signals: Causal-PIK and recent causal world-model work aimed at physical reasoning."
+  - title: "World models for decisions, not just next-step prediction"
+    status: "Reading + prototyping"
+    summary: "Prediction becomes useful to me when a model helps choose, evaluate, and revise actions under uncertainty."
+    keywords: "decision-grounded world models, latent imagination, counterfactual planning"
+    signals:
+      - "Why it matters: an agent should imagine alternatives before paying the price in the real world."
+      - "Representative signals: Dreamer-style imagination, JEPA-style abstraction, and evaluation work such as WorldGym."
+  - title: "Spatial intelligence across bodies and scenes"
+    status: "Long-term direction"
+    summary: "I am interested in how geometric understanding and scene reasoning support manipulation, navigation, and transfer across embodiments."
+    keywords: "3D reasoning, scene representations, spatial cognition"
+    signals:
+      - "Why it matters: a capable robot should reason over space, not only over pixels or language tokens."
+      - "Representative signals: recent work on 4D spatial intelligence and multi-image spatial reasoning benchmarks."
+  - title: "Data-efficient and safe RL for robotics"
+    status: "Benchmarking focus"
+    summary: "I care about policies that learn with fewer real-world trials and fail more gracefully when the world shifts."
+    keywords: "model-based RL, safe exploration, sim-to-real reliability"
+    signals:
+      - "Why it matters: real systems are expensive, risky, and too slow for wasteful training loops."
+      - "Representative directions: learned environments for control, action-constrained RL, and policy evaluation before deployment."
+
+outputs:
+  label: "Outputs"
+  title: "Publications & Work in Progress"
+  lede: "I do not have formal papers yet. Instead of hiding an empty list, I show the questions, prototypes, and public-facing artifacts that already shape the work."
+  narrative: "Right now the site is a record of problem selection, reading, prototyping, and teaching. The publication list will come later. The intellectual trail should not have to wait."
+
+work_in_progress:
+  - title: "Causal world models for embodied interaction"
+    status: "Problem framing"
+    description: "Mapping what an agent should preserve when it moves from passive prediction to intervention, planning, and explanation."
+  - title: "Spatial reasoning for manipulation and navigation"
+    status: "Surveying + prototyping"
+    description: "Studying how geometric representations, scene memory, and body-dependent constraints combine in long-horizon tasks."
+  - title: "Data-efficient RL for real systems"
+    status: "Implementation track"
+    description: "Looking for training and evaluation setups that respect safety, sample cost, and sim-to-real mismatch from the start."
+
+featured_outputs:
+  - title: "AI101: Pioneering AI Education for Teens"
+    type: "Open curriculum"
+    status: "Launched March 2025"
+    description: "An open-access AI curriculum for secondary education, designed to make frontier ideas legible without flattening them into slogans."
+    links:
+      - label: "Project repository"
+        url: "https://github.com/huashanjian/AI-101"
+        external: true
+  - title: "World Models: When Machines Begin to Imagine"
+    type: "Talk and slides"
+    status: "Public teaching material"
+    description: "An accessible slide deck on world models, written for students and curious readers who want both intuition and technical grounding."
+    links:
+      - label: "View slides"
+        url: "https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/view?usp=sharing"
+        external: true
+      - label: "See resources page"
+        url: "/resources/"
+        external: false
+  - title: "World Model Musings"
+    type: "Writing series"
+    status: "Ongoing"
+    description: "A series of essays where I test ideas in public before they harden into claims."
+    links:
+      - label: "Read the latest jotting"
+        url: "/jottings/world-model-musings-1-on-the-primal-impulse-of-intelligence/"
+        external: false
+      - label: "Browse all jottings"
+        url: "/all-jottings/"
+        external: false
+
+news:
+  label: "News"
+  title: "Recent signals"
+  items:
+    - date: "2025.06"
+      title: "Joined TEA Lab at Tsinghua University as an intern researcher."
+    - date: "2025.03"
+      title: "Launched AI101, an open-access AI curriculum for secondary education."
+    - date: "2025.02"
+      title: "Completed my first surfing experience and earned the L2 certification."
+    - date: "2024.12"
+      title: "Attended the AI Computing Technical Committee Forum at HKUST(GZ)."
+    - date: "2024.11"
+      title: "Spent the month around AI4S and embodied-intelligence forums in Shenzhen."
+
+resources:
+  label: "Resources"
+  title: "Selected materials for students and curious readers"
+  lede: "I use public materials to translate research questions into something teachable. The homepage keeps the highlights; the resources page collects the fuller set."
+  items:
+    - title: "AI101 curriculum"
+      type: "Course project"
+      audience: "Secondary students and educators"
+      preview: "Open-access curriculum"
+      description: "A structured AI curriculum built to give teenage learners a serious but welcoming entry point into the field."
+      links:
+        - label: "Open repository"
+          url: "https://github.com/huashanjian/AI-101"
+          external: true
+    - title: "World models slide deck"
+      type: "Slides"
+      audience: "Undergraduate students and AI enthusiasts"
+      preview: "Teaching deck"
+      description: "A public deck that links the philosophical motivation of world models to their modern technical forms."
+      links:
+        - label: "View slides"
+          url: "https://drive.google.com/file/d/1yH8hOjfyds6W3SHeAAYI1DIiWDWfywqI/view?usp=sharing"
+          external: true
+    - title: "Jottings archive"
+      type: "Essays"
+      audience: "Readers who like ideas in progress"
+      preview: "Research notes"
+      description: "Short essays, reading notes, and argument sketches written while questions are still alive."
+      links:
+        - label: "Browse archive"
+          url: "/all-jottings/"
+          external: false
+
+experience:
+  label: "Experience"
+  title: "Where I am learning in public"
+  items:
+    - organization: "TEA Lab, Tsinghua University"
+      role: "Intern Researcher"
+      period: "Jun. 2025 - Present"
+      location: "Beijing, China"
+      mentor: "Prof. Huazhe Xu"
+      image: "/images/tea.jpg"
+      image_alt: "TEA Lab logo"
+      description: "Working close to embodied-intelligence research and learning how ambitious ideas survive contact with real systems, real constraints, and honest evaluation."
+    - organization: "Independent writing and teaching"
+      role: "Writer and curriculum builder"
+      period: "2024 - Present"
+      location: "Online"
+      description: "Building notes, talks, and public learning materials that make AI more legible without sanding off its depth."
+
+jottings:
+  label: "Jottings"
+  title: "Notes, essays, and research sketches"
+  lede: "I use short essays to think in public and keep a record of questions before they harden into positions."
+
+contact:
+  title: "Open to conversations"
+  summary: "If you work on embodied intelligence, world models, scientific communication, or careful teaching, I would be glad to hear from you."
+  links:
+    - label: "Email"
+      url: "mailto:junhuayao41@gmail.com"
+      external: true
+    - label: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=UwMitgEAAAAJ"
+      external: true
+    - label: "Github"
+      url: "https://github.com/huashanjian"
+      external: true

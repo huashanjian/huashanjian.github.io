@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body class="page-shell page-shell--editorial">
+    {% include site-header.html %}
+
+    <main class="editorial-page">
+      <div class="editorial-shell">
+        <header class="editorial-hero">
+          {% if page.kicker %}<p class="section-kicker">{{ page.kicker }}</p>{% endif %}
+          <h1 class="section-title">{{ page.title }}</h1>
+          {% if page.lede %}<p class="section-lede">{{ page.lede }}</p>{% endif %}
+        </header>
+
+        <section class="editorial-content">
+          {{ content }}
+        </section>
+      </div>
+    </main>
+
+    {% include site-footer.html %}
+    {% include site-scripts.html %}
+  </body>
+</html>

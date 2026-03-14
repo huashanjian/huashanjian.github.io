@@ -1,0 +1,22 @@
+{% assign nav = site.data.navigation %}
+
+<header class="site-header">
+  <div class="site-shell__inner site-header__inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="Junhua Yao home">
+      <span class="site-brand__mark">JY</span>
+      <span class="site-brand__copy">
+        <span class="site-brand__name">Junhua Yao</span>
+        <span class="site-brand__subtitle">姚俊华</span>
+      </span>
+    </a>
+
+    <nav class="site-header__nav" aria-label="Primary">
+      {% for link in nav.primary %}
+        <a class="site-header__link" href="{{ link.url | relative_url }}">{{ link.title }}</a>
+      {% endfor %}
+      {% for link in nav.secondary %}
+        <a class="site-header__link site-header__link--secondary" href="{{ link.url | relative_url }}">{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

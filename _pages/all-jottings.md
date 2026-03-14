@@ -1,7 +1,6 @@
 ---
 permalink: /all-jottings/
 title: "All Jottings"
-excerpt: "Collection of all jottings"
-author_profile: true
+excerpt: "Notes, essays, and research sketches."
 layout: all-jottings
 --- 

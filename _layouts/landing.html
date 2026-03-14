@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body class="page-shell page-shell--landing">
+    {% assign home = site.data.home %}
+    {% assign latest_jottings = site.jottings | sort: 'date' | reverse %}
+
+    {% include site-header.html %}
+
+    <main class="landing-main">
+      <section id="intro" class="section-shell landing-hero">
+        <div class="site-shell__inner hero__grid">
+          <div class="hero__content">
+            <p class="section-kicker">{{ home.hero.eyebrow }}</p>
+            <h1 class="hero__title">{{ home.hero.title }}</h1>
+            <p class="hero__summary">{{ home.hero.summary }}</p>
+
+            <div class="hero__note">
+              <p class="hero__note-zh">{{ home.hero.chinese_line }}</p>
+              <p class="hero__note-en">{{ home.hero.chinese_gloss }}</p>
+            </div>
+
+            <div class="button-row">
+              {% for cta in home.hero.ctas %}
+                {% if cta.external %}
+                  {% assign cta_href = cta.url %}
+                {% else %}
+                  {% assign cta_href = cta.url | relative_url %}
+                {% endif %}
+                <a
+                  class="button-link {% if cta.style == 'ghost' %}button-link--ghost{% else %}button-link--primary{% endif %}"
+                  href="{{ cta_href }}"
+                  {% if cta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >
+                  {{ cta.label }}
+                </a>
+              {% endfor %}
+            </div>
+
+            <ul class="signal-list" aria-label="Current focus">
+              {% for item in home.hero.quick_notes %}
+                <li class="signal-list__item">{{ item }}</li>
+              {% endfor %}
+              <li class="signal-list__item">
+                Scholar citations:
+                <span id="total_cit" class="signal-list__value">loading</span>
+              </li>
+            </ul>
+          </div>
+
+          <aside class="hero__aside">
+            <div class="portrait-card">
+              <div class="portrait-card__media">
+                <img
+                  src="{{ home.hero.avatar | relative_url }}"
+                  alt="{{ home.hero.avatar_alt }}"
+                  width="1280"
+                  height="1919"
+                  loading="eager"
+                  decoding="async"
+                >
+              </div>
+
+              <div class="portrait-card__body">
+                <p class="portrait-card__eyebrow">Current mode</p>
+                <p class="portrait-card__headline">Reading widely, building carefully, teaching in public.</p>
+                <ul class="portrait-card__links">
+                  {% for link in home.hero.profile_links %}
+                    {% if link.external %}
+                      {% assign profile_href = link.url %}
+                    {% else %}
+                      {% assign profile_href = link.url | relative_url %}
+                    {% endif %}
+                    <li>
+                      <a href="{{ profile_href }}" {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+                        {{ link.label }}
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="site-shell__inner intro-split">
+          <div>
+            <p class="section-kicker">{{ home.intro.label }}</p>
+            <h2 class="section-title">{{ home.intro.title }}</h2>
+          </div>
+
+          <div class="editorial-copy">
+            {% for paragraph in home.intro.paragraphs %}
+              <p>{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section id="research" class="section-shell">
+        <div class="site-shell__inner">
+          <div class="section-heading">
+            <p class="section-kicker">{{ home.research.label }}</p>
+            <h2 class="section-title">{{ home.research.title }}</h2>
+            <p class="section-lede">{{ home.research.lede }}</p>
+          </div>
+
+          <div class="research-grid">
+            {% for thread in home.research_threads %}
+              <article class="stack-card research-thread">
+                <div class="stack-card__top">
+                  <p class="stack-card__eyebrow">0{{ forloop.index }}. {{ thread.status }}</p>
+                  <h3>{{ thread.title }}</h3>
+                  <p>{{ thread.summary }}</p>
+                </div>
+                <p class="stack-card__meta">{{ thread.keywords }}</p>
+                <ul class="stack-card__list">
+                  {% for signal in thread.signals %}
+                    <li>{{ signal }}</li>
+                  {% endfor %}
+                </ul>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="site-shell__inner">
+          <div class="section-heading">
+            <p class="section-kicker">{{ home.news.label }}</p>
+            <h2 class="section-title">{{ home.news.title }}</h2>
+          </div>
+
+          <ol class="news-timeline">
+            {% for item in home.news.items %}
+              <li class="news-timeline__item">
+                <p class="news-timeline__date">{{ item.date }}</p>
+                <p class="news-timeline__title">{{ item.title }}</p>
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+
+      <section id="outputs" class="section-shell">
+        <div class="site-shell__inner outputs-layout">
+          <div class="outputs-layout__intro">
+            <p class="section-kicker">{{ home.outputs.label }}</p>
+            <h2 class="section-title">{{ home.outputs.title }}</h2>
+            <p class="section-lede">{{ home.outputs.lede }}</p>
+            <p class="outputs-layout__narrative">{{ home.outputs.narrative }}</p>
+          </div>
+
+          <div class="outputs-layout__content">
+            <div class="stack-card stack-card--wide">
+              <p class="stack-card__eyebrow">Research agenda</p>
+              <div class="work-grid">
+                {% for item in home.work_in_progress %}
+                  <article class="work-card">
+                    <p class="work-card__status">{{ item.status }}</p>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                  </article>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="resource-grid">
+              {% for item in home.featured_outputs %}
+                <article class="resource-card">
+                  <div class="resource-card__preview">
+                    <p>{{ item.type }}</p>
+                    <strong>{{ item.status }}</strong>
+                  </div>
+                  <div class="resource-card__body">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                    <div class="button-row button-row--compact">
+                      {% for link in item.links %}
+                        {% if link.external %}
+                          {% assign output_href = link.url %}
+                        {% else %}
+                          {% assign output_href = link.url | relative_url %}
+                        {% endif %}
+                        <a
+                          class="button-link button-link--ghost"
+                          href="{{ output_href }}"
+                          {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+                        >
+                          {{ link.label }}
+                        </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </article>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="resources" class="section-shell">
+        <div class="site-shell__inner">
+          <div class="section-heading">
+            <p class="section-kicker">{{ home.resources.label }}</p>
+            <h2 class="section-title">{{ home.resources.title }}</h2>
+            <p class="section-lede">{{ home.resources.lede }}</p>
+          </div>
+
+          <div class="resource-grid resource-grid--featured">
+            {% for item in home.resources.items %}
+              <article class="resource-card">
+                <div class="resource-card__preview resource-card__preview--soft">
+                  <p>{{ item.preview }}</p>
+                  <strong>{{ item.audience }}</strong>
+                </div>
+                <div class="resource-card__body">
+                  <p class="stack-card__eyebrow">{{ item.type }}</p>
+                  <h3>{{ item.title }}</h3>
+                  <p>{{ item.description }}</p>
+                  <div class="button-row button-row--compact">
+                    {% for link in item.links %}
+                      {% if link.external %}
+                        {% assign resource_href = link.url %}
+                      {% else %}
+                        {% assign resource_href = link.url | relative_url %}
+                      {% endif %}
+                      <a
+                        class="button-link button-link--ghost"
+                        href="{{ resource_href }}"
+                        {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
+                      >
+                        {{ link.label }}
+                      </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section id="jottings" class="section-shell">
+        <div class="site-shell__inner">
+          <div class="section-heading">
+            <p class="section-kicker">{{ home.jottings.label }}</p>
+            <h2 class="section-title">{{ home.jottings.title }}</h2>
+            <p class="section-lede">{{ home.jottings.lede }}</p>
+          </div>
+
+          <div class="jottings-grid">
+            {% for jotting in latest_jottings limit:3 %}
+              <article class="stack-card jotting-card">
+                <p class="stack-card__eyebrow">{{ jotting.date | date: "%Y-%m-%d" }}</p>
+                <h3>
+                  <a href="{{ jotting.url | relative_url }}">{{ jotting.title }}</a>
+                </h3>
+                <p>{{ jotting.content | strip_html | truncatewords: 32 }}</p>
+              </article>
+            {% endfor %}
+          </div>
+
+          <div class="section-actions">
+            <a class="button-link button-link--ghost" href="{{ '/all-jottings/' | relative_url }}">View all jottings</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section-shell">
+        <div class="site-shell__inner">
+          <div class="section-heading">
+            <p class="section-kicker">{{ home.experience.label }}</p>
+            <h2 class="section-title">{{ home.experience.title }}</h2>
+          </div>
+
+          <div class="experience-grid">
+            {% for item in home.experience.items %}
+              <article class="experience-card">
+                <div class="experience-card__media">
+                  {% if item.image %}
+                    <img
+                      src="{{ item.image | relative_url }}"
+                      alt="{{ item.image_alt | default: item.organization }}"
+                      width="1024"
+                      height="1024"
+                      loading="lazy"
+                      decoding="async"
+                    >
+                  {% else %}
+                    <div class="experience-card__fallback">{{ item.organization | slice: 0, 1 }}</div>
+                  {% endif %}
+                </div>
+                <div class="experience-card__body">
+                  <p class="stack-card__eyebrow">{{ item.period }}{% if item.location %}, {{ item.location }}{% endif %}</p>
+                  <h3>{{ item.role }}</h3>
+                  <p class="experience-card__org">{{ item.organization }}</p>
+                  {% if item.mentor %}
+                    <p class="experience-card__mentor">Working with {{ item.mentor }}.</p>
+                  {% endif %}
+                  <p>{{ item.description }}</p>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    {% include site-footer.html %}
+    {% include site-scripts.html %}
+  </body>
+</html>
