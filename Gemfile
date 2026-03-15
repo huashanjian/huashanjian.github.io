@@ -3,8 +3,6 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.4"
 gem "webrick", "~> 1.9"
 
-gem "wdm", "~> 0.1.0" if Gem.win_platform?
-
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17"
   gem "jekyll-gist", "~> 1.5"
