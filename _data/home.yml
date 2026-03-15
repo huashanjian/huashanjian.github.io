@@ -3,7 +3,7 @@ hero:
   title: "I study how agents form internal worlds before they act in the physical one."
   summary: "I'm Junhua Yao, a second-year computer science undergraduate exploring embodied intelligence, world models, spatial reasoning, and robust reinforcement learning for robotics."
   chinese_line: "学术精神的本质恰恰是恢复人类的天真。"
-  chinese_gloss: "For me, scientific work begins by recovering a childlike sense of wonder."
+  chinese_gloss: "For me, science begins with recovering childlike wonder."
   avatar: "/images/self.jpg"
   avatar_alt: "Portrait of Junhua Yao"
   ctas:
@@ -21,7 +21,7 @@ hero:
       style: "ghost"
   quick_notes:
     - "Intern Researcher, TEA Lab, Tsinghua University"
-    - "Building AI101 for open-access AI education"
+    - "Building AI101, an open-access AI curriculum"
     - "Based in Guangzhou, collaborating through Beijing"
   profile_links:
     - label: "Email"
@@ -41,8 +41,8 @@ intro:
   label: "Intro"
   title: "Research that tries to see structure before scale"
   paragraphs:
-    - "I am drawn to questions where prediction alone feels insufficient. If an agent is going to act in the physical world, I want to know what structure it has learned, what assumptions it relies on, and how those assumptions survive contact with new bodies, tools, and environments."
-    - "That is why I keep returning to causality, world models, spatial intelligence, and data-efficient reinforcement learning. I care about systems that can imagine before acting, explain before overclaiming, and transfer across settings without treating every new task as a fresh start."
+    - "Questions that draw me are those where prediction alone feels insufficient. If an agent is going to act in the physical world, I want to know what structure it has learned, what assumptions it relies on, and how those assumptions survive contact with new bodies, tools, and environments."
+    - "Hence my focus on causality, world models, spatial intelligence, and data-efficient reinforcement learning. I care about systems that can imagine before acting, explain before overclaiming, and transfer across settings without treating every new task as a fresh start."
     - "I also care deeply about communicating science in public. Teaching, writing, and building open materials are part of the research process for me, because clarity is not decoration. It is how we test whether an idea actually holds together."
 
 research:
@@ -53,7 +53,7 @@ research:
 research_threads:
   - title: "Causal structure for embodied agents"
     status: "Active question"
-    summary: "I want agents to tell apart what merely co-occurs from what actually changes the outcome of an interaction."
+    summary: "I want agents to distinguish mere correlation from genuine causal influence on outcomes."
     keywords: "causal representation learning, intervention-driven reasoning, physical understanding"
     signals:
       - "Why it matters: better robustness, sharper explanations, and fewer brittle shortcuts."
@@ -193,7 +193,7 @@ experience:
       role: "Writer and curriculum builder"
       period: "2024 - Present"
       location: "Online"
-      description: "Building notes, talks, and public learning materials that make AI more legible without sanding off its depth."
+      description: "Building notes, talks, and public learning materials that make AI more legible without diluting its depth."
 
 jottings:
   label: "Jottings"
