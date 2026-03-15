@@ -9,9 +9,10 @@
     {% assign home = site.data.home %}
     {% assign latest_jottings = site.jottings | sort: 'date' | reverse %}
 
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     {% include site-header.html %}
 
-    <main class="landing-main">
+    <main id="main-content" class="landing-main">
       <section id="intro" class="section-shell landing-hero">
         <div class="site-shell__inner hero__grid">
           <div class="hero__content">

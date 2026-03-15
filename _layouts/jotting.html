@@ -9,11 +9,12 @@ layout: null
   {% include head/custom.html %}
 </head>
 
-<body class="page-shell page-shell--editorial">
+<body class="page-shell page-shell--editorial page-shell--article">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   {% include site-header.html %}
 
-  <main class="editorial-page">
-    <div class="editorial-shell">
+  <main id="main-content" class="editorial-page editorial-page--article">
+    <div class="editorial-shell editorial-shell--article">
       <article class="editorial-article">
         <header class="editorial-hero editorial-hero--article">
           <p class="section-kicker">Jotting</p>
@@ -23,10 +24,23 @@ layout: null
           {% endif %}
         </header>
 
-        <div class="editorial-content">
-          <div class="editorial-copy">
+        <div class="editorial-content editorial-content--article" data-article-layout data-has-toc="false">
+          <div class="editorial-copy editorial-copy--article" data-article-copy>
             {{ content }}
           </div>
+
+          <aside class="article-toc" data-article-toc hidden aria-labelledby="article-toc-title">
+            <div class="article-toc__inner">
+              <p class="article-toc__eyebrow">On this page</p>
+              <h2 class="article-toc__title" id="article-toc-title">Contents</h2>
+              <button class="article-toc__toggle" type="button" data-article-toc-toggle aria-expanded="true" aria-controls="article-toc-nav">
+                Hide contents
+              </button>
+              <nav class="article-toc__nav" id="article-toc-nav" aria-label="Table of contents">
+                <ol class="article-toc__list" data-article-toc-list></ol>
+              </nav>
+            </div>
+          </aside>
         </div>
 
         <footer class="article-footer">
