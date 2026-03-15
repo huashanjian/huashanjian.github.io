@@ -300,11 +300,16 @@
 
 .article-toc {
   align-self: start;
+  position: relative;
+  min-width: 0;
 }
 
 .article-toc__inner {
-  position: sticky;
+  position: fixed;
   top: calc(4.5rem + 1rem);
+  right: max(1rem, calc((100vw - 1180px) / 2 + 1rem));
+  width: min(18rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 5.5rem);
   display: grid;
   gap: 0.7rem;
   padding: 1rem;
@@ -313,6 +318,7 @@
   background: oklch(100% 0 0 / 0.6);
   backdrop-filter: blur(8px);
   box-shadow: var(--shadow-soft);
+  z-index: 90;
 }
 
 .article-toc__eyebrow {
@@ -338,7 +344,7 @@
 }
 
 .article-toc__nav {
-  max-height: calc(100vh - 11.5rem);
+  max-height: calc(100vh - 12rem);
   overflow: auto;
   padding-right: 0.15rem;
 }
@@ -414,6 +420,8 @@
 
   .article-toc__inner {
     position: static;
+    width: auto;
+    max-height: none;
     gap: 0;
     padding: 0;
     border: none;

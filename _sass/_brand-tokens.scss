@@ -137,18 +137,18 @@ body.page-shell ::selection {
 }
 
 /* Links */
-.page-shell a {
+.page-shell a:not(.button-link) {
   color: var(--accent-strong);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
   transition: color var(--transition-fast);
 }
 
-.page-shell a:hover {
+.page-shell a:not(.button-link):hover {
   color: var(--signal-strong);
 }
 
-.page-shell a:focus-visible {
+.page-shell a:not(.button-link):focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 2px;
   border-radius: 2px;
@@ -232,6 +232,7 @@ body.page-shell ::selection {
   gap: 0.5rem;
 }
 
+.page-shell a.button-link,
 .button-link {
   position: relative;
   display: inline-flex;
@@ -250,6 +251,7 @@ body.page-shell ::selection {
   white-space: nowrap;
   text-decoration: none;
   backdrop-filter: blur(8px);
+  color: var(--ink);
   transition:
     transform var(--transition-fast),
     background-color var(--transition-fast),
@@ -257,6 +259,7 @@ body.page-shell ::selection {
     box-shadow var(--transition);
 }
 
+.page-shell a.button-link:hover,
 .button-link:hover {
   transform: translateY(-2px);
   border-color: var(--accent);
@@ -266,6 +269,7 @@ body.page-shell ::selection {
   text-decoration: none;
 }
 
+.page-shell a.button-link:focus-visible,
 .button-link:focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 2px;
@@ -281,23 +285,28 @@ body.page-shell ::selection {
   color: inherit;
 }
 
+.page-shell a.button-link.button-link--primary,
 .button-link--primary {
   border-color: var(--accent-strong);
   background: var(--accent-strong);
-  color: #fff;
+  color: var(--paper);
 }
 
+.page-shell a.button-link.button-link--primary:hover,
 .button-link--primary:hover {
   border-color: var(--ink);
   background: var(--ink);
-  color: #fff;
+  color: var(--paper);
 }
 
+.page-shell a.button-link.button-link--ghost,
 .button-link--ghost {
   border-color: transparent;
   background: transparent;
+  color: var(--ink);
 }
 
+.page-shell a.button-link.button-link--ghost:hover,
 .button-link--ghost:hover {
   border-color: var(--border);
   background: oklch(100% 0 0 / 0.6);
