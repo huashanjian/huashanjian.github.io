@@ -7,7 +7,7 @@ hero:
   avatar: "/images/self.jpg"
   avatar_alt: "Portrait of Junhua Yao"
   ctas:
-    - label: "Write me"
+    - label: "Email me"
       url: "mailto:junhuayao41@gmail.com"
       external: true
       style: "primary"

@@ -37,7 +37,8 @@
                   href="{{ cta_href }}"
                   {% if cta.external %}target="_blank" rel="noopener noreferrer"{% endif %}
                 >
-                  {{ cta.label }}
+                  {% include link-glyph.html url=cta_href icon_class='button-link__icon' %}
+                  <span class="button-link__label">{{ cta.label }}</span>
                 </a>
               {% endfor %}
             </div>
@@ -68,7 +69,7 @@
 
               <div class="portrait-card__body">
                 <p class="portrait-card__eyebrow">Current mode</p>
-                <p class="portrait-card__headline">Reading widely, building carefully, teaching in public.</p>
+                <p class="portrait-card__headline">Surfing, sometimes literally.</p>
                 <ul class="portrait-card__links">
                   {% for link in home.hero.profile_links %}
                     {% if link.external %}
@@ -78,7 +79,8 @@
                     {% endif %}
                     <li>
                       <a href="{{ profile_href }}" {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
-                        {{ link.label }}
+                        {% include link-glyph.html url=profile_href icon_class='portrait-card__icon' %}
+                        <span>{{ link.label }}</span>
                       </a>
                     </li>
                   {% endfor %}

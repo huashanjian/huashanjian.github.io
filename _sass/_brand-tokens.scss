@@ -110,6 +110,10 @@ body.page-shell {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.page-shell--article {
+  overflow-x: visible;
+}
+
 /* Subtle texture overlay */
 body.page-shell::before {
   content: "";
@@ -242,6 +246,8 @@ body.page-shell ::selection {
   color: var(--ink);
   font-size: 0.92rem;
   font-weight: 600;
+  line-height: 1.1;
+  white-space: nowrap;
   text-decoration: none;
   backdrop-filter: blur(8px);
   transition:
@@ -263,6 +269,16 @@ body.page-shell ::selection {
 .button-link:focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 2px;
+}
+
+.button-link__icon {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
+.button-link__label {
+  color: inherit;
 }
 
 .button-link--primary {

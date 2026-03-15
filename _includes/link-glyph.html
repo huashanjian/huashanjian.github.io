@@ -1,0 +1,6 @@
+{% assign href = include.url | default: "" %}
+{% if href contains 'mailto:' %}
+  <svg class="{{ include.icon_class | default: 'link-glyph' }}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M3.75 6.75h16.5a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5v-7.5a1.5 1.5 0 0 1 1.5-1.5Zm0 1.62v.1l8.25 5.59 8.25-5.59v-.1H3.75Zm16.5 7.38v-5.47l-7.83 5.31a.75.75 0 0 1-.84 0l-7.83-5.31v5.47h16.5Z" fill="currentColor"/>
+  </svg>
+{% endif %}

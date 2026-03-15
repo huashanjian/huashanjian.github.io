@@ -57,7 +57,7 @@
 
     const links = Array.from(tocList.querySelectorAll(".article-toc__link"));
     let ticking = false;
-    const mobileQuery = window.matchMedia("(max-width: 820px)");
+    const mobileQuery = window.matchMedia("(max-width: 900px)");
 
     function syncTocState() {
       if (!tocToggle) {
@@ -66,7 +66,9 @@
 
       const open = !mobileQuery.matches || toc.classList.contains("is-open");
       tocToggle.setAttribute("aria-expanded", open ? "true" : "false");
-      tocToggle.textContent = open ? "Hide contents" : "Show contents";
+      tocToggle.textContent = mobileQuery.matches
+        ? (open ? "Close contents" : "Open contents")
+        : "Contents";
     }
 
     function applyResponsiveTocState() {
@@ -113,6 +115,28 @@
         syncTocState();
       });
     }
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (!mobileQuery.matches) {
+          return;
+        }
+
+        toc.classList.remove("is-open");
+        syncTocState();
+      });
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key !== "Escape" || !mobileQuery.matches) {
+        return;
+      }
+
+      if (toc.classList.contains("is-open")) {
+        toc.classList.remove("is-open");
+        syncTocState();
+      }
+    });
 
     window.addEventListener("scroll", requestUpdate, { passive: true });
     window.addEventListener("resize", function () {

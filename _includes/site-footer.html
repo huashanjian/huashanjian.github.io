@@ -20,7 +20,8 @@
           href="{{ footer_href }}"
           {% if link.external %}target="_blank" rel="noopener noreferrer"{% endif %}
         >
-          {{ link.label }}
+          {% include link-glyph.html url=footer_href icon_class='button-link__icon' %}
+          <span class="button-link__label">{{ link.label }}</span>
         </a>
       {% endfor %}
     </div>
