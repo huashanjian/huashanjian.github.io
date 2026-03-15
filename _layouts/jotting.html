@@ -24,12 +24,12 @@ layout: null
           {% endif %}
         </header>
 
-        <div class="editorial-content editorial-content--article" data-article-layout data-has-toc="false">
+        <div class="editorial-content editorial-content--article" data-article-layout data-has-toc="{{ page.toc | default: 'auto' }}">
           <div class="editorial-copy editorial-copy--article" data-article-copy>
             {{ content }}
           </div>
 
-          <aside class="article-toc" data-article-toc hidden aria-labelledby="article-toc-title">
+          <aside class="article-toc" data-article-toc aria-labelledby="article-toc-title">
             <div class="article-toc__inner">
               <p class="article-toc__eyebrow">On this page</p>
               <h2 class="article-toc__title" id="article-toc-title">Contents</h2>
@@ -44,8 +44,45 @@ layout: null
         </div>
 
         <footer class="article-footer">
-          <a class="button-link button-link--ghost" href="{{ '/all-jottings/' | relative_url }}">All Jottings</a>
-          <a class="button-link button-link--ghost" href="{{ '/#jottings' | relative_url }}">Back to home notes</a>
+          {% assign sorted_jottings = site.jottings | sort: 'date' %}
+          {% for jotting in sorted_jottings %}
+            {% if jotting.url == page.url %}
+              {% assign current_index = forloop.index0 %}
+              {% assign prev_index = current_index | minus: 1 %}
+              {% assign next_index = current_index | plus: 1 %}
+              {% if prev_index >= 0 %}
+                {% assign prev_jotting = sorted_jottings[prev_index] %}
+              {% endif %}
+              {% if next_index < sorted_jottings.size %}
+                {% assign next_jotting = sorted_jottings[next_index] %}
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if prev_jotting or next_jotting %}
+          <nav class="article-nav" aria-label="Article navigation">
+            {% if next_jotting %}
+              <a class="article-nav__link article-nav__link--next" href="{{ next_jotting.url | relative_url }}">
+                <span class="article-nav__label">Newer</span>
+                <span class="article-nav__title">{{ next_jotting.title }}</span>
+              </a>
+            {% else %}
+              <span class="article-nav__link article-nav__link--placeholder"></span>
+            {% endif %}
+            {% if prev_jotting %}
+              <a class="article-nav__link article-nav__link--prev" href="{{ prev_jotting.url | relative_url }}">
+                <span class="article-nav__label">Older</span>
+                <span class="article-nav__title">{{ prev_jotting.title }}</span>
+              </a>
+            {% else %}
+              <span class="article-nav__link article-nav__link--placeholder"></span>
+            {% endif %}
+          </nav>
+          {% endif %}
+
+          <div class="button-row button-row--center">
+            <a class="button-link button-link--ghost" href="{{ '/all-jottings/' | relative_url }}">All Jottings</a>
+          </div>
         </footer>
       </article>
     </div>

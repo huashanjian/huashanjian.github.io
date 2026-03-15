@@ -21,17 +21,40 @@ layout: null
       </header>
 
       <section class="editorial-content">
-        <div class="archive-grid">
-          {% assign jottings = site.jottings | sort: 'date' | reverse %}
-          {% for jotting in jottings %}
-            <article class="stack-card archive-card">
-              <p class="stack-card__eyebrow">{{ jotting.date | date: "%B %d, %Y" }}</p>
-              <h2><a href="{{ jotting.url | relative_url }}">{{ jotting.title }}</a></h2>
-              <p>{{ jotting.content | strip_html | truncatewords: 38 }}</p>
-              <a class="button-link button-link--ghost" href="{{ jotting.url | relative_url }}">Read more</a>
-            </article>
-          {% endfor %}
-        </div>
+        {% assign jottings = site.jottings | sort: 'date' | reverse %}
+
+        {% if jottings.size == 0 %}
+          <div class="empty-state">
+            <p class="empty-state__message">No jottings yet. Check back soon for notes, essays, and research sketches.</p>
+          </div>
+        {% else %}
+          <div class="archive-search">
+            <input type="text" class="archive-search__input" placeholder="Search jottings..." data-jottings-search aria-label="Search jottings">
+          </div>
+
+          <div class="archive-grid" data-jottings-list>
+            {% assign current_year = nil %}
+            {% for jotting in jottings %}
+              {% assign jotting_year = jotting.date | date: "%Y" %}
+              {% if jotting_year != current_year %}
+                {% assign current_year = jotting_year %}
+                <h3 class="archive-year-heading" data-year="{{ current_year }}">{{ current_year }}</h3>
+              {% endif %}
+
+              {% assign words = jotting.content | number_of_words %}
+              {% assign read_time = words | divided_by: 200 %}
+              {% if read_time < 1 %}{% assign read_time = 1 %}{% endif %}
+
+              <article class="stack-card archive-card" data-jotting-card data-year="{{ jotting_year }}" data-title="{{ jotting.title | downcase }}" data-content="{{ jotting.description | default: jotting.content | strip_html | truncatewords: 50 | downcase }}">
+                <p class="stack-card__eyebrow">{{ jotting.date | date: "%B %d, %Y" }} · {{ read_time }} min read</p>
+                <h2><a href="{{ jotting.url | relative_url }}">{{ jotting.title }}</a></h2>
+                <p>{{ jotting.description | default: jotting.content | strip_html | truncatewords: 38 }}</p>
+              </article>
+            {% endfor %}
+          </div>
+
+          <p class="archive-no-results" data-jottings-no-results hidden>No jottings match your search.</p>
+        {% endif %}
       </section>
     </div>
   </main>

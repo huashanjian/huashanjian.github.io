@@ -1,6 +1,51 @@
 {% include fetch_google_scholar_stats.html %}
 
 <script>
+  // Jottings search functionality
+  (function () {
+    const searchInput = document.querySelector("[data-jottings-search]");
+    const jottingsList = document.querySelector("[data-jottings-list]");
+    const noResults = document.querySelector("[data-jottings-no-results]");
+
+    if (!searchInput || !jottingsList) {
+      return;
+    }
+
+    const cards = Array.from(jottingsList.querySelectorAll("[data-jotting-card]"));
+    const yearHeadings = Array.from(jottingsList.querySelectorAll(".archive-year-heading"));
+
+    function filterJottings() {
+      const query = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
+      const visibleYears = new Set();
+
+      cards.forEach(function (card) {
+        const title = card.dataset.title || "";
+        const content = card.dataset.content || "";
+        const year = card.dataset.year || "";
+        const matches = !query || title.includes(query) || content.includes(query);
+
+        card.hidden = !matches;
+        if (matches) {
+          visibleCount++;
+          visibleYears.add(year);
+        }
+      });
+
+      yearHeadings.forEach(function (heading) {
+        heading.hidden = !visibleYears.has(heading.dataset.year);
+      });
+
+      if (noResults) {
+        noResults.hidden = visibleCount > 0;
+      }
+    }
+
+    searchInput.addEventListener("input", filterJottings);
+  })();
+</script>
+
+<script>
   (function () {
     const articleCopy = document.querySelector("[data-article-copy]");
     const toc = document.querySelector("[data-article-toc]");
@@ -12,11 +57,23 @@
       return;
     }
 
+    const tocSetting = layout.dataset.hasToc; // "true", "false", or "auto"
+
+    // If explicitly disabled, hide TOC
+    if (tocSetting === "false") {
+      toc.hidden = true;
+      return;
+    }
+
     const headings = Array.from(articleCopy.querySelectorAll("h2, h3")).filter(function (heading) {
       return heading.textContent && heading.textContent.trim().length > 0;
     });
 
-    if (headings.length < 2) {
+    // For "auto" mode: show TOC only if there are 3+ headings
+    // For "true" mode: show TOC if there are 2+ headings
+    const minHeadings = tocSetting === "auto" ? 3 : 2;
+
+    if (headings.length < minHeadings) {
       layout.dataset.hasToc = "false";
       toc.hidden = true;
       return;

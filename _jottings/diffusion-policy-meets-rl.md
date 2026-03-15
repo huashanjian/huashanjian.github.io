@@ -3,10 +3,9 @@ title: "Diffusion Policy + RL: An Underrated Insight"
 date: 2026-03-12
 description: "Why diffusion policies fine-tuned with reinforcement learning work better than expected, through the lens of structured exploration, on-manifold search, and the geometry behind DPPO."
 ---
-
 Something that shouldn't have worked... actually did?
 
-DPPO<a href="#ref-2">[2]</a> shows dramatically better sample efficiency across multiple benchmarks, and the training is stable. That's surprising. Diffusion likelihoods are intractable; standard Policy Gradient shouldn't work directly. So how is it this smooth?
+DPPO shows dramatically better sample efficiency across multiple benchmarks, and the training is stable. That's surprising. Diffusion likelihoods are intractable; standard Policy Gradient shouldn't work directly. So how is it this smooth?
 
 I recently came across a question on Zhihu: can diffusion policy be combined with RL?
 
@@ -34,15 +33,15 @@ How? With a diffusion model.
 
 Here's a way to think about diffusion models: imagine you have a clear photograph, and you keep pouring sand over it until you can no longer make out anything. A diffusion model learns to sweep that sand away, step by step, until the original photo is restored.
 
-For the mathematically inclined: it defines a forward process and a reverse process. The forward process adds noise progressively. Given original data $x_0$, after $T$ steps of noising you get $x_T \approx \mathcal{N}(0, I)$, essentially pure noise. The reverse process learns to denoise: a neural network is trained to predict the noise added at each step, then removes it. The training objective is surprisingly simple: just MSE loss between the predicted and actual noise. This loss is equivalent to score matching, i.e., learning $\nabla \log p(x)$. That'll come up again later.
+For the mathematically inclined: it defines a forward process and a reverse process. The forward process adds noise progressively. Given original data $x_0$, after $T$ steps of noising you get $x_T \approx \mathcal{N}(0, I)$, essentially pure noise. The reverse process learns to denoise: a neural network is trained to predict the noise added at each step, then removes it. The training objective is surprisingly simple: just MSE loss between the predicted and actual noise. More precisely, this corresponds to score matching on the noise-corrupted distributions, i.e., learning the score at different noise levels, written as $\nabla_{x_t} \log p_t(x_t)$. That'll come up again later.
 
-![Diffusion denoising: restoring an action sequence from pure noise, step by step](/figures/diffusion-policy-meets-rl/diffusion-denoising.svg)
+![Diffusion denoising: restoring an action sequence from pure noise, step by step](/figures/diffusion-policy-meets-rl/diffusion-denoising.png)
 
 Applied to robotics, the "photo" is an action sequence. During training, the model sees a bunch of human demonstrations and learns to denoise: starting from pure noise, iteratively recovering plausible actions.
 
-More concretely: a Diffusion Policy takes in the current observation (images, joint angles, etc.) and outputs a sequence of future actions. Chi et al. (2023)<a href="#ref-1">[1]</a> introduced a clever design called *action chunking*: rather than predicting one action per timestep, predict an entire action sequence and execute it smoothly. This captures temporal dependencies between actions. Picking up a cup isn't one action; it's a whole chain: reach, open fingers, approach, close, lift. Predicting these one at a time tends to be jittery; predicting them together is smooth.
+More concretely: a Diffusion Policy takes in the current observation (images, joint angles, etc.) and outputs a sequence of future actions. Chi et al. (2023) introduced a clever design called *action chunking*: rather than predicting one action per timestep, predict an entire action sequence and execute it smoothly. This captures temporal dependencies between actions. Picking up a cup isn't one action; it's a whole chain: reach, open fingers, approach, close, lift. Predicting these one at a time tends to be jittery; predicting them together is smooth.
 
-![Action Chunking: predicting an entire action sequence rather than individual steps](/figures/diffusion-policy-meets-rl/action-chunking.svg)
+![Action Chunking: predicting an entire action sequence rather than individual steps](/figures/diffusion-policy-meets-rl/action-chunking.png)
 
 Chi et al.'s 2023 work made this concrete, and the results were strong. But there's a fundamental limitation: it can only *imitate*, not *improve*. If an action isn't in the demonstration data, the model simply won't produce it.
 
@@ -64,7 +63,7 @@ A robot's action space can easily be dozens of dimensions. Random exploration in
 
 How bad is this? Let's do the math. A 7-DOF robotic arm, with 10 possible velocities per joint, gives $10^7 = 10{,}000{,}000$ combinations. The probability of finding a good action via random noise exploration drops exponentially with dimensionality. Worse, in high-dimensional spaces, "good actions" tend to cluster on a low-dimensional manifold. Picture a 10-million-dimensional space where good actions occupy a 100-dimensional sliver. The odds of random sampling hitting that sliver are essentially zero.
 
-![Low-dimensional manifold in a high-dimensional action space: good actions cluster in a thin subspace](/figures/diffusion-policy-meets-rl/action-manifold.svg)
+![Low-dimensional manifold in a high-dimensional action space: good actions cluster in a thin subspace](/figures/diffusion-policy-meets-rl/action-manifold.png)
 
 This is why traditional RL has always struggled in robotics. Sample efficiency is too low; real robots can't afford it.
 
@@ -88,7 +87,7 @@ Diffusion's exploration is different.
 
 Diffusion generates actions iteratively: starting from pure noise, denoising step by step until an action emerges. Each denoising step makes a small adjustment; it's not jumping around the full space. More importantly, the direction of adjustment is meaningful: it inherently drifts toward the region of "reasonable actions."
 
-The word "manifold" here is literal. Suppose the training data (human demonstrations) concentrates on a low-dimensional submanifold of the action space. The score function that Diffusion learns will point toward that manifold in its vicinity. Why? Because the score function is $\nabla \log p(x)$, pointing in the direction of steepest increase in probability density. All the data is on the manifold; probability drops off away from it; so the score naturally pulls you back. The denoising process walks along that gradient, staying close to the manifold.
+The word "manifold" here is literal. Suppose the training data (human demonstrations) concentrates on a low-dimensional submanifold of the action space. The score function that Diffusion learns will point toward that manifold in its vicinity. Why? Because the score function points in the direction of steepest increase in probability density. All the data is on the manifold; probability drops off away from it; so the score naturally pulls you back. The denoising process walks along that gradient, staying close to the manifold.
 
 This is **structured exploration**: exploration isn't random, it has structure. You're still trying different possibilities, but the search is constrained to reasonable territory.
 
@@ -106,15 +105,15 @@ This is why Policy Gradient is surprisingly effective with Diffusion: exploratio
 
 There's a beautiful piece of mathematical intuition here.
 
-Diffusion models learn the score function: $\nabla \log p(x)$. Geometrically, this has an interesting property: when data concentrates on a low-dimensional manifold, the score function near the manifold points *toward* the manifold itself.
+Diffusion models learn the score function. More precisely, they learn the score of the noise-corrupted distribution, written as $\nabla_{x_t} \log p_t(x_t)$. Geometrically, this has an interesting property: when data concentrates on a low-dimensional manifold, the score function near the manifold points *toward* the manifold itself.
 
 Why? Because the score function points in the direction of steepest increase in probability density. If data lives on the manifold, moving away from it means probability collapses, so the score naturally pulls you back.
 
-Stanczuk et al. (2022)<a href="#ref-5">[5]</a> put it this way: when data concentrates near a low-dimensional manifold, in the small-noise limit, the score function points in the normal direction to the manifold.
+Stanczuk et al. (2022) put it this way: when data concentrates near a low-dimensional manifold, in the small-noise limit, the score function points in the normal direction to the manifold.
 
 In plain language: Diffusion doesn't just know "what data looks like"; it also knows "which direction leads away from the data." Imagine a sphere: at every point on the surface, there's a direction perpendicular to the surface, pointing outward. Diffusion learns exactly those "away" directions, which means it can pull deviant points back in.
 
-![Score function pointing toward the manifold: arrows show the direction of ∇log p(x)](/figures/diffusion-policy-meets-rl/score-to-manifold.svg)
+![Score function pointing toward the manifold: arrows show the direction of the score function](/figures/diffusion-policy-meets-rl/score-to-manifold.png)
 
 This sounds abstractly mathematical, but the practical implication is direct: when noise is small, the denoising step tends to pull samples back toward high-probability territory, i.e., closer to the data manifold.
 
@@ -126,7 +125,7 @@ There's a useful mathematical analogy here: structured exploration can be roughl
 
 ### Around the Expert Data Manifold
 
-The DPPO authors use a precise term: *on-manifold exploration* (or more accurately, *around the expert data manifold*)<a href="#ref-2">[2]</a>. Exploration happens near the expert data manifold, rather than wandering the full action space.
+The DPPO authors use a precise term: *on-manifold exploration* (or more accurately, *around the expert data manifold*). Exploration happens near the expert data manifold, rather than wandering the full action space.
 
 Traditional RL adds noise to actions. The problem is that most noise pushes you off the manifold, and off-manifold actions are inherently unreasonable, making that exploration wasted. Diffusion is different: the denoising process naturally pulls samples toward high-probability regions, so exploration more reliably lands in reasonable territory. This is why DPPO can learn good policies with very few samples: not because it explores more, but because it explores *better*.
 
@@ -181,7 +180,7 @@ With structured exploration in mind, a lot of things start making sense. Let's l
 
 ### DPPO: Treating the Denoising Chain as an MDP
 
-DPPO's core idea is to treat the entire denoising chain as an MDP: each denoising step is an "action," and the full chain is an episode<a href="#ref-2">[2]</a>. This makes it possible to optimize with standard PPO.
+DPPO's core idea is to treat the entire denoising chain as an MDP: each denoising step is an "action," and the full chain is an episode. This makes it possible to optimize with standard PPO.
 
 It sounds like a hack, but it's actually quite natural. The denoising process is inherently sequential; each step can be evaluated and optimized independently. This isn't circumventing Diffusion's intractable likelihood; it's *leveraging* its structure.
 
@@ -202,9 +201,9 @@ What's GAE? Briefly, it's a method for "credit assignment." You receive a reward
 
 The elegance of this design: the outer MDP reward can be propagated to every denoising step via GAE. Early denoising steps are far from the final reward, but GAE distributes credit using value estimates from subsequent steps.
 
-One more key point: each denoising step outputs a Gaussian distribution (mean + variance), which means log probability can be computed directly, with no need to deal with the intractable marginal likelihood of the full Diffusion model. That's why PPO can be applied directly.
+One more key point: under DPPO's parameterization, each denoising step corresponds to a tractable Gaussian likelihood, which means log probability can be computed directly, without dealing with the intractable marginal likelihood of the full Diffusion model. That's why PPO can be applied directly.
 
-Why is the original Diffusion likelihood intractable? Because computing the likelihood of an action $a$ requires integrating over all possible denoising paths, and that integral has no closed-form solution. DPPO sidesteps this: it doesn't need the trajectory likelihood, only the per-step likelihoods. Each step is Gaussian; log probability is straightforward. The PPO importance sampling ratio becomes a product of per-step ratios, fully computable.
+Why is the original Diffusion likelihood intractable? Because computing the likelihood of an action $a$ requires integrating over all possible denoising paths, and that integral has no closed-form solution. DPPO sidesteps this: it doesn't need the trajectory likelihood, only the per-step likelihoods. Under this stepwise denoising parameterization, each step has a Gaussian likelihood, so log probability is straightforward. The PPO importance sampling ratio becomes a product of per-step ratios, fully computable.
 
 Sometimes the way around a hard problem isn't to solve it head-on, but to find a perspective where it simply doesn't arise. DPPO didn't solve Diffusion's intractable likelihood. It just found that if you treat denoising as an MDP, the problem doesn't need to be solved.
 
@@ -224,7 +223,7 @@ From a structured exploration perspective, DPPO's contribution isn't a new algor
 
 ### Offline RL: Diffusion as a Constraint
 
-Another technical direction is Offline RL, with Diffusion-QL<a href="#ref-3">[3]</a> as the flagship work.
+Another technical direction is Offline RL, with Diffusion-QL as the flagship work.
 
 The core problem in Offline RL is distribution shift: Q-learning pushes policy toward high-Q actions, but if those actions weren't in the training data, Q value estimates are unreliable. Traditional approaches use various regularization methods to keep the policy from straying too far, with mixed results.
 
@@ -236,9 +235,9 @@ In other words, Diffusion-QL couples behavior cloning and policy improvement int
 
 This is structured exploration at work: Diffusion constrains the policy to the behavioral data manifold; RL pushes it in a better direction within that region. The constraint is "learned in," not "bolted on." The manifold constraint is encoded directly in the policy, rather than imposed at inference time.
 
-After Diffusion-QL, EDP (Efficient Diffusion Policy)<a href="#ref-4">[4]</a> addressed a practical bottleneck: training speed. The numbers are striking: on gym locomotion, training time compresses from 5 days to roughly 5 hours (exact numbers depend on task and hardware). The key idea is to avoid running the full sampling chain, instead approximating action construction from corrupted actions during training. This shows the approach isn't just conceptually sound; it's rapidly becoming an engineering reality.
+After Diffusion-QL, EDP (Efficient Diffusion Policy) addressed a practical bottleneck: training speed. The numbers are striking: on gym locomotion, training time compresses from 5 days to roughly 5 hours (exact numbers depend on task and hardware). The key idea is to avoid running the full sampling chain, instead approximating action construction from corrupted actions during training. This shows the approach isn't just conceptually sound; it's rapidly becoming an engineering reality.
 
-Worth noting: two earlier works laid the groundwork. Janner et al. (2022)<a href="#ref-10">[10]</a>'s Diffuser and Ajay et al. (2023)<a href="#ref-11">[11]</a>'s Decision Diffuser were pioneers of Diffusion for sequential decision-making, modeling entire trajectories rather than just actions. Diffusion-QL and EDP are direct descendants of that lineage.
+Worth noting: two earlier works laid the groundwork. Janner et al. (2022)'s Diffuser and Ajay et al. (2023)'s Decision Diffuser were pioneers of Diffusion for sequential decision-making, modeling entire trajectories rather than just actions. Diffusion-QL and EDP are direct descendants of that lineage.
 
 ### Inference-Time Guidance: The Frozen-Weights Approach
 
@@ -248,15 +247,15 @@ The core idea: why use RL to update model weights at all? If Diffusion has alrea
 
 At generation time (during denoising), we add the Q-value gradient as an additional guiding force (like Classifier-Free Guidance in image generation), applied to each denoising step. Intuitively:
 
-> Each step = walk along the manifold ($\nabla \log p(x)$) + move toward higher reward ($\alpha \nabla Q(x)$)
+> Each step = follow the learned score field + move toward higher reward ($\alpha \nabla Q(x)$)
 
-The big advantage: the original manifold is never touched. Guidance only navigates within it. Diffusion draws the track; Q-Gradient is the accelerator.
+A big advantage is that the base Diffusion model stays frozen, so you're less likely to rewrite the learned distribution the way training-time fine-tuning can. More accurately, guidance navigates with respect to that learned structure. Diffusion draws the track; Q-gradient is the accelerator.
 
-Of course, this has trade-offs: Q-function estimation needs to be accurate enough, and inference-time computation increases. But for cases where you're particularly worried about mode collapse, or don't want to retrain a large model, this is a compelling option. It relocates "improvement" from training time to inference time: accept slower inference, but don't risk damaging the manifold.
+Of course, this has trade-offs: Q-function estimation needs to be accurate enough, and inference-time computation increases. But for cases where you're particularly worried about mode collapse, or don't want to retrain a large model, this is a compelling option. It relocates "improvement" from training time to inference time: accept slower inference, but reduce the risk of rewriting the learned structure.
 
 ### Flow Matching: Faster Structured Generation
 
-Physical Intelligence's $\pi_0$ series<a href="#ref-6">[6]</a> uses Flow Matching<a href="#ref-7">[7]</a>, not Diffusion. But the underlying idea is the same.
+Physical Intelligence's $\pi_0$ series uses Flow Matching, not Diffusion. But the underlying idea is the same.
 
 The difference between Flow Matching and Diffusion can be roughly understood as a difference in path shape: Diffusion corresponds to a stochastic denoising process; Flow Matching learns a velocity field that continuously pushes noise toward the data distribution.
 
@@ -268,7 +267,7 @@ $$\frac{dx}{dt} = v(x, t)$$
 
 Integrating from $t=0$ (noise) to $t=1$ (data) traces a continuous generation trajectory. The key distinction: Diffusion relies on stochastic differential equations (SDEs); Flow Matching uses ordinary differential equations (ODEs). Deterministic ODE paths mean fewer sampling steps for high-quality results.
 
-![Diffusion vs. Flow Matching: stochastic path vs. deterministic path](/figures/diffusion-policy-meets-rl/diffusion-vs-flow.svg)
+![Diffusion vs. Flow Matching: stochastic path vs. deterministic path](/figures/diffusion-policy-meets-rl/diffusion-vs-flow.png)
 
 This speed advantage matters in robot control. Systems like $\pi_0$ use roughly 10 flow matching steps to predict an action chunk, theoretically enabling high-frequency control. That said, the model outputting an action chunk quickly is one thing; system-level real-time execution is another. Physical Intelligence's later RTC work specifically addresses this, which means $\pi_0$/$\pi_{0.5}$ were still executing chunks synchronously, and truly real-time policies required additional engineering.
 
@@ -382,7 +381,7 @@ Traditional RL models policies with Gaussians, so reweighting happens across the
 
 Diffusion is different. The distribution it learns is already concentrated on the data manifold. When RL reweights this distribution, the adjustments happen within the manifold, not scattered across the full space. This is where structured exploration's efficiency comes from: not fewer reweighting steps, but each step being more meaningful.
 
-A recent paper, De Santi et al. (2025)<a href="#ref-8">[8]</a>, made this intuition more formal: framing exploration as entropy maximization on the data manifold.
+A recent paper (De Santi et al., 2025) made this intuition more formal: framing exploration as entropy maximization on the data manifold.
 
 Their idea: a pre-trained Diffusion model implicitly defines an approximate data manifold; exploration can be written as entropy maximization on that constrained region. The paper's experiments span text-to-image and other domains, not specifically robot fine-tuning.
 
@@ -390,7 +389,7 @@ But I think its value is providing a formal language. It turns "structured explo
 
 Through this lens, mode collapse becomes perfectly quantifiable: **entropy is dropping, and the manifold is collapsing.** RL's greedy optimization squeezes a distribution spread across a manifold into a sharp spike.
 
-There's another related theoretical perspective worth mentioning. Finzi et al. (2026)<a href="#ref-12">[12]</a> proposed a framework called Epiplexity, which tries to answer a fundamental question: for a computationally bounded observer, what kind of information is actually "useful"?
+There's another related theoretical perspective worth mentioning. Finzi et al. (2026) proposed a framework called Epiplexity, which tries to answer a fundamental question: for a computationally bounded observer, what kind of information is actually "useful"?
 
 Their core distinction: not all "uncertainty" is created equal. One kind of uncertainty is "structural." You don't know the answer now, but given enough computation time, you could infer it from the data. Another kind is "random." No matter how long you compute, it's just unpredictable noise. They call the former epiplexity (extractable structural complexity) and the latter time-bounded entropy.
 
@@ -402,7 +401,7 @@ What about regions off the manifold? For a computationally bounded agent, those 
 
 The efficiency advantage of structured exploration, in this language, becomes: concentrating samples in high-epiplexity regions (on the manifold), rather than wasting them in high-entropy but low-epiplexity random space. You're not "exploring less"—you're "exploring smarter," spending your limited computational budget where structure can actually be extracted.
 
-![Epiplexity vs Entropy: Same data, same compute budget. Structured data yields extractable patterns; random data yields only noise.](/figures/diffusion-policy-meets-rl/epiplexity-vs-entropy.png)
+![Epiplexity vs Entropy: Same data, same compute budget. Structured data yields extractable patterns; random data yields only noise.](figures/diffusion-policy-meets-rl/epiplexity-vs-entropy.png)
 
 ## Structure Determines Boundaries
 
@@ -426,54 +425,28 @@ Maybe this is the real ceiling of the Diffusion + RL paradigm: not an algorithm 
 
 *Written March 12, 2026*
 
-## How to Cite This Post
-
-If you want to reference this essay, cite the stable page URL rather than a local Markdown file:
-
-- Author: Junhua Yao
-- Title: "Diffusion Policy + RL: An Underrated Insight"
-- Published: March 12, 2026
-- Canonical URL: <https://huashanjian.github.io/jottings/diffusion-policy-meets-rl/>
-
-### Suggested reference
-
-Yao, J. (2026, March 12). *Diffusion Policy + RL: An Underrated Insight*. Junhua Yao. <https://huashanjian.github.io/jottings/diffusion-policy-meets-rl/>
-
-### BibTeX
-
-```bibtex
-@online{yao2026diffusionpolicyrl,
-  author = {Junhua Yao},
-  title = {Diffusion Policy + RL: An Underrated Insight},
-  date = {2026-03-12},
-  url = {https://huashanjian.github.io/jottings/diffusion-policy-meets-rl/},
-  langid = {english},
-  note = {Blog post}
-}
-```
-
 ## References
 
-1. <span id="ref-1"></span>Chi, C., Xu, Z., Feng, S., Cousineau, E., Du, Y., Burchfiel, B., Tedrake, R., & Song, S. (2023). *Diffusion Policy: Visuomotor Policy Learning via Action Diffusion*. [arXiv:2303.04137](https://arxiv.org/abs/2303.04137)
+1. Chi, C., Xu, Z., Feng, S., Cousineau, E., Du, Y., Burchfiel, B., Tedrake, R., & Song, S. (2023). Diffusion Policy: Visuomotor Policy Learning via Action Diffusion. arXiv:2303.04137
 
-2. <span id="ref-2"></span>Ren, A. Z., Lidard, J., Ankile, L. L., Simeonov, A., Agrawal, P., Majumdar, A., Burchfiel, B., Dai, H., & Simchowitz, M. (2024). *Diffusion Policy Policy Optimization*. [arXiv:2409.00588](https://arxiv.org/abs/2409.00588)
+2. Ren, A. Z., Lidard, J., Ankile, L. L., Simeonov, A., Agrawal, P., Majumdar, A., Burchfiel, B., Dai, H., & Simchowitz, M. (2024). Diffusion Policy Policy Optimization. arXiv:2409.00588
 
-3. <span id="ref-3"></span>Wang, Z., Hunt, J. J., & Zhou, M. (2022). *Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning*. [arXiv:2208.06193](https://arxiv.org/abs/2208.06193)
+3. Wang, Z., Hunt, J. J., & Zhou, M. (2022). Diffusion Policies as an Expressive Policy Class for Offline Reinforcement Learning. arXiv:2208.06193
 
-4. <span id="ref-4"></span>Kang, B., Ma, X., Du, C., Pang, T., & Yan, S. (2023). *Efficient Diffusion Policies for Offline Reinforcement Learning*. [arXiv:2305.20081](https://arxiv.org/abs/2305.20081)
+4. Kang, B., Ma, X., Du, C., Pang, T., & Yan, S. (2023). Efficient Diffusion Policies for Offline Reinforcement Learning. arXiv:2305.20081
 
-5. <span id="ref-5"></span>Stanczuk, J., Batzolis, G., Deveney, T., & Schönlieb, C.-B. (2022). *Your diffusion model secretly knows the dimension of the data manifold*. [arXiv:2212.12611](https://arxiv.org/abs/2212.12611)
+5. Stanczuk, J., Batzolis, G., Deveney, T., & Schönlieb, C.-B. (2022). Your diffusion model secretly knows the dimension of the data manifold. arXiv:2212.12611
 
-6. <span id="ref-6"></span>Physical Intelligence. (2025). *π0.6: a VLA That Learns From Experience*. [arXiv:2511.14759](https://arxiv.org/abs/2511.14759)
+6. Physical Intelligence. (2025). π0.6: a VLA That Learns From Experience. arXiv:2511.14759
 
-7. <span id="ref-7"></span>Lipman, Y., Chen, R. T. Q., Ben-Hamu, H., Nickel, M., & Le, M. (2022). *Flow Matching for Generative Modeling*. [arXiv:2210.02747](https://arxiv.org/abs/2210.02747)
+7. Lipman, Y., Chen, R. T. Q., Ben-Hamu, H., Nickel, M., & Le, M. (2022). Flow Matching for Generative Modeling. arXiv:2210.02747
 
-8. <span id="ref-8"></span>De Santi, R., Vlastelica, M., Hsieh, Y.-P., Shen, Z., He, N., & Krause, A. (2025). *Provable Maximum Entropy Manifold Exploration via Diffusion Models*. [arXiv:2506.15385](https://arxiv.org/abs/2506.15385)
+8. De Santi, R., Vlastelica, M., Hsieh, Y.-P., Shen, Z., He, N., & Krause, A. (2025). Provable Maximum Entropy Manifold Exploration via Diffusion Models. arXiv:2506.15385
 
-9. <span id="ref-9"></span>Barceló, R., Alcázar, C., & Tobar, F. (2024). *Avoiding mode collapse in diffusion models fine-tuned with reinforcement learning*. [arXiv:2410.08315](https://arxiv.org/abs/2410.08315)
+9. Barceló, R., Alcázar, C., & Tobar, F. (2024). Avoiding mode collapse in diffusion models fine-tuned with reinforcement learning. arXiv:2410.08315
 
-10. <span id="ref-10"></span>Janner, M., Du, Y., Tenenbaum, J. B., & Levine, S. (2022). *Planning with Diffusion for Flexible Behavior Synthesis*. [arXiv:2205.09991](https://arxiv.org/abs/2205.09991)
+10. Janner, M., Du, Y., Tenenbaum, J. B., & Levine, S. (2022). Planning with Diffusion for Flexible Behavior Synthesis. arXiv:2205.09991
 
-11. <span id="ref-11"></span>Ajay, A., Du, Y., Gupta, A., Tenenbaum, J., Jaakkola, T., & Agrawal, P. (2023). *Is Conditional Generative Modeling all you need for Decision-Making?* [arXiv:2211.15657](https://arxiv.org/abs/2211.15657)
+11. Ajay, A., Du, Y., Gupta, A., Tenenbaum, J., Jaakkola, T., & Agrawal, P. (2023). Is Conditional Generative Modeling all you need for Decision-Making? arXiv:2211.15657
 
-12. <span id="ref-12"></span>Finzi, M., Qiu, S., Jiang, Y., Izmailov, P., Kolter, J. Z., & Wilson, A. G. (2026). *From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence*. [arXiv:2601.03220](https://arxiv.org/abs/2601.03220)
+12. Finzi, M., Qiu, S., Jiang, Y., Izmailov, P., Kolter, J. Z., & Wilson, A. G. (2026). From Entropy to Epiplexity: Rethinking Information for Computationally Bounded Intelligence. arXiv:2601.03220

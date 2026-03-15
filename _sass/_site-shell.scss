@@ -200,7 +200,21 @@
 }
 
 .editorial-copy--article {
-  max-width: 50rem;
+  max-width: 52rem;
+}
+
+.editorial-copy--article p,
+.editorial-copy--article li {
+  font-size: clamp(1.12rem, calc(1.04rem + 0.22vw), 1.24rem);
+  line-height: 1.82;
+}
+
+.editorial-copy--article h2 {
+  font-size: clamp(1.65rem, 2.8vw, 2.15rem);
+}
+
+.editorial-copy--article h3 {
+  font-size: clamp(1.2rem, 2vw, 1.35rem);
 }
 
 /* Editorial typography */
