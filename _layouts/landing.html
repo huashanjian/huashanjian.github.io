@@ -266,7 +266,7 @@
                 <h3>
                   <a href="{{ jotting.url | relative_url }}">{{ jotting.title }}</a>
                 </h3>
-                <p>{{ jotting.content | strip_html | truncatewords: 32 }}</p>
+                <p>{{ jotting.description | default: jotting.content | strip_html | truncatewords: 32 }}</p>
               </article>
             {% endfor %}
           </div>
@@ -321,3 +321,4 @@
     {% include site-scripts.html %}
   </body>
 </html>
+
