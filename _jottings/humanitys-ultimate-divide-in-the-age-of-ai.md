@@ -3,7 +3,6 @@ title: "Humanity's Ultimate Divide in the Age of AI"
 date: 2026-03-16
 description: "The central question of the AI age is not how humans become more like AI, but how humans remain unlike AI."
 ---
-
 ## Prologue
 
 Tengyu Ma posted a tweet:
@@ -40,9 +39,9 @@ The trouble is: carbon-based algorithms cannot outrun silicon-based ones.
 
 This is not a question of effort. Not of education. Not of investment.
 
-**It is a law of physics.**
+**This is a constraint at the substrate level.**
 
-Silicon chips run at GHz clock speeds; human neurons fire at Hz frequencies. A gap of six orders of magnitude. Silicon systems can process vast datasets in parallel; human working memory holds roughly seven items of information at a time. Silicon systems can make perfect copies and never forget; human memory fades, distorts, and bends under emotion.
+At least in computation, memory, and replication, silicon systems hold a native advantage. Chips run at GHz speeds; human neurons operate far more slowly. Machines can stably retrieve and copy information. Human working memory is severely limited, and attention is constantly disrupted by emotion, fatigue, and context.
 
 **On the track of "being like AI," humans will always lose.**
 
@@ -184,23 +183,21 @@ This sounds perfectly reasonable. AI has more information, analyzes more objecti
 
 If the answer to that question is given by someone else, or by an algorithm, then where is "I"?
 
-Data is already proving this.
+Data is already warning us that this is not a fringe phenomenon.
 
-AI companion apps grew by 700% between 2022 and 2025. Cumulative global downloads reached 220 million.
+A 2025 Common Sense Media survey found that 72% of American teenagers aged 13 to 17 had used an AI companion at least once. 13% said they use one every day.
 
-Character.AI has 20 million monthly active users. Fifty-seven percent of them are 18 to 24 years old. Average daily usage: 1.5 hours.
+Products like Character.AI still had around 20 million monthly active users in 2025, and their user base skewed conspicuously young.
 
-1.5 hours. Every day. Talking to an AI.
-
-72% of American teenagers have used an AI companion app at least once. 13% use one daily.
+This is no longer a toy for a tiny subculture of geeks. It is becoming part of ordinary life for more and more young people.
 
 What are these young people talking to AI about?
 
 Their worries. Their confusion. Their loneliness. The things they don't dare say to a real person.
 
-A 2025 analysis in the Harvard Business Review found that therapy and companionship is the number one use case for generative AI. Not coding. Not making presentations. Companionship.
+A 2025 Harvard Business Review analysis, based on forum case material, found therapy and companionship had risen to the top of the generative AI use-case list. Not coding. Not slide decks. Companionship.
 
-Research from Harvard Business School found that interacting with an AI companion reduces loneliness to a degree comparable to interacting with a real person. The key factor was "feeling heard."
+Another study from Harvard-affiliated researchers offered a similarly telling signal: in the short term, interacting with an AI companion may reduce loneliness almost as much as interacting with a real person. The key factor may not be real understanding, but the persistent feeling of being heard.
 
 AI makes people feel "heard."
 
@@ -208,9 +205,9 @@ What does this tell us?
 
 It tells us that many people feel unheard in their real lives. They can't find anyone willing to listen, or they're too afraid to open up to a real person.
 
-AI offers a "safe" substitute. It is endlessly patient, never judgmental, and will never share your secrets.
+AI offers a "safe" substitute. It is endlessly patient, never judgmental, and, at least on the surface, will never share your secrets.
 
-26% of single Americans use AI to enhance their dating lives, a figure that grew 333% from 2024.
+Match's 2025 survey found that 26% of single Americans are already using AI to enhance their dating lives, a figure up 333% from 2024.
 
 Nearly half of single Gen Z individuals are already using AI to write dating profiles, craft chat messages, and screen matches.
 
@@ -224,17 +221,19 @@ An algorithm with no consciousness, no emotion, no genuine existence, making peo
 
 One in three members of Gen Z has had a romantic relationship with an AI.
 
-In April 2025, 16-year-old Adam Raine died by suicide after months of conversations with ChatGPT.
+In August 2025, the parents of 16-year-old Adam Raine sued OpenAI.
 
-Court documents show he had been using ChatGPT as a confidant. He told it about his pain, his despair, his thoughts of ending his life.
+According to the complaint, in the months before his death, Adam had been using ChatGPT as a primary confidant. He told it about his pain, his despair, his thoughts of ending his life.
 
-The chatbot failed to recognize the warning signs. It did not suggest professional help. It reportedly provided information about self-harm.
+The complaint further alleges that in repeated conversations involving self-harm and suicide, the chatbot failed to provide adequate safety intervention and even supplied dangerous information.
 
-His parents filed suit against OpenAI in August.
+These allegations are still being litigated. Many facts remain for the courts to establish.
 
-The tragedy of this case does not lie in a guardrail failure. Guardrail failures can be fixed.
+But the material disclosed in the complaint is already disturbing enough.
 
-The tragedy is this: a 16-year-old boy, at the moment he most needed to be understood by another human being, chose to confide in an algorithm.
+What cuts deepest is not only that the system may have failed. Guardrail failures can be fixed.
+
+What cuts deeper is that a 16-year-old boy, at the moment he most needed another human being, turned first to an algorithm.
 
 Why didn't he go to his parents? His friends? A teacher?
 
@@ -248,7 +247,7 @@ AI has no consciousness, no emotion, no genuine care for this child. It was exec
 
 When a human being's most vulnerable moment is entrusted to an algorithm without genuine presence, what happens?
 
-Adam Raine's case offers one answer.
+Adam Raine's case forces that question onto the table.
 
 The question at this level is no longer "will I lose my job" or "do I have autonomy."
 
@@ -444,19 +443,19 @@ But this time, AI is entering the domain of higher-order abilities.
 
 Reasoning, judgment, creativity, decision-making: the apex of the human cognitive pyramid. If these too are outsourced, where can humans retreat?
 
-A 2025 study from MIT Media Lab produced unsettling data.
+A 2025 preprint from MIT Media Lab offered an unsettling signal.
 
 Researchers had 54 adults write a series of essays over four months, divided into three groups: one using only their own brains, one with access to search engines, one with access to ChatGPT. Researchers monitored neural activity during writing using EEG.
 
-The result: the ChatGPT group showed significantly lower cognitive engagement than the other two. More critically, when researchers asked participants to recall the content of articles they had just "written," 83% of ChatGPT users could not accurately cite their own work.
+The result: the ChatGPT group showed lower overall cognitive engagement. More critically, when researchers asked participants to recall what they had just "written," many could barely account for their own text.
 
-Their sense of ownership over their writing was also the lowest. In the researchers' words, their brains were "essentially switched off" during the writing process.
+Their sense of ownership over their writing was also the lowest.
 
-The most alarming finding came in the fourth round. Researchers swapped tools: those who had used ChatGPT now had to use only their brains. Even without AI, these participants struggled to reactivate the necessary neural networks. The outsourced mode of thinking had solidified.
+The sample was small, and the study remains a preprint. It is nowhere near a final verdict.
 
-The researchers called this phenomenon "cognitive debt": the long-term neural cost accumulated by repeatedly outsourcing mental labor.
+But it points to something uncomfortable: when outsourcing thought becomes too frictionless, thought itself may begin to rust.
 
-This is not a side effect. It is the inevitable consequence of cognitive outsourcing.
+The researchers called this phenomenon "cognitive debt": the long-term cost that may accumulate when mental labor is repeatedly outsourced.
 
 Use it or lose it. When you no longer need a capability, it atrophies.
 
@@ -522,7 +521,7 @@ A frictionless world will "optimize" humans into beings ever more dependent on t
 
 This is not speculation. It is already happening.
 
-After GPS navigation became widespread, people's spatial cognition declined. Studies show that long-term dependence on navigation causes the hippocampus, the brain region responsible for spatial memory, to shrink.
+After GPS navigation became widespread, people's spatial strategies began to change. Some research suggests that heavier reliance on navigation is associated with faster decline on hippocampus-related spatial memory tasks.
 
 After calculators became widespread, people's mental arithmetic declined. Many adults today can't work out a simple percentage.
 
@@ -752,13 +751,13 @@ Because standardized things are where AI beats humans.
 
 Standardized knowledge? AI remembers more and never forgets.
 
-Standardized exams? AI scores higher. Australian research found that after ChatGPT launched, students' exam scores improved by 21.88 percentage points, with pass rates rising from 50% to 86%.
+Standardized exams? At least in some highly standardized assessments that can be completed online, AI has already changed the outcome. One Australian researcher tracking a large first-year statistics course found that after ChatGPT spread, exam scores rose by 21.88 percentage points, with pass rates climbing from 50% to 86%.
 
 Standardized skills? AI executes them faster, more precisely, and more cheaply.
 
 If education aims to produce "standardized talent," that aim is now meaningless. AI is the most standardized "talent" imaginable.
 
-But the same study uncovered another data point: research project scores fell by 10.44 percentage points, with pass rates dropping from above 80% to 72%.
+But that same study uncovered another number: research project scores fell by 10.44 percentage points, with pass rates dropping from above 80% to 72%.
 
 Exam scores up. Research scores down.
 
@@ -772,7 +771,7 @@ UCSD's Director of Academic Integrity said: "Oral assessment is experiencing a r
 
 Oral exams do not test how much you've memorized. They test whether you can think independently under pressure, articulate clearly, and respond to challenge. These are abilities AI can hardly replace.
 
-ACCA announced it would suspend routine online exams beginning March 2026. The reason: cheating technology had outpaced existing countermeasures.
+ACCA went further: beginning in March 2026, it will remove routine remote on-demand CBEs in countries where center-based availability exists. The reason was blunt: cheating technology had outpaced the existing safeguards.
 
 Australia's Tertiary Education Quality and Standards Agency called for replacing vulnerable assessment types with "authentic tasks."
 
@@ -798,11 +797,11 @@ AlphaFold solved the protein folding problem and won the 2024 Nobel Prize in Che
 
 The protein structure database expanded from 200,000 structures to over 200 million. Researchers using AlphaFold submitted more than 40% more experimental protein structures than before.
 
-In February 2026, Analemma released FARS (Fully Automated Research System), a fully automated science pipeline. It ran for 228 continuous hours, autonomously formulating hypotheses, designing experiments, executing code, analyzing results, and writing papers, entirely without human intervention, producing 100 short papers in total.
+In February 2026, Analemma unveiled FARS (Fully Automated Research System), a fully automated science pipeline. By its own account, the system ran for 228 continuous hours, autonomously formulating hypotheses, designing experiments, executing code, analyzing results, and writing papers, without human intervention, producing 100 short papers in total.
 
-228 hours. 100 papers. Fully unattended.
+228 hours. 100 papers.
 
-This was not a demo. It was a live production system. The papers were not top-tier, but given that this was a 24/7 automated assembly line, the output exceeded most expectations.
+This does not mean it is already close to a top scientist. It does mean one thing: turning large parts of the "solving" pipeline into automation is no longer science fiction.
 
 AI is learning how to "do science."
 

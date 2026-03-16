@@ -40,7 +40,7 @@
       "id": "waterline",
       "x": 100,
       "y": 180,
-      "width": 600,
+      "width": 500,
       "height": 0,
       "strokeColor": "#64748b",
       "backgroundColor": "transparent",
@@ -58,14 +58,14 @@
       "boundElements": null,
       "link": null,
       "locked": false,
-      "points": [[0, 0], [600, 0]]
+      "points": [[0, 0], [500, 0]]
     },
     {
       "type": "text",
       "id": "waterline_label",
-      "x": 710,
+      "x": 560,
       "y": 170,
-      "width": 100,
+      "width": 120,
       "height": 20,
       "text": "Visibility Line",
       "originalText": "Visibility Line",
