@@ -14,6 +14,8 @@ Tengyu Ma posted a tweet:
 >
 > But .., one needs to believe this task is feasible, and this job itself is not replaceable by AI ...
 
+![Tengyu Ma's tweet](/figures/ai_divide/tengyuma.png)
+
 Tengyu Ma is an assistant professor of computer science at Stanford, working on machine learning theory. This is not the lament of an outsider. It is the judgment of someone standing at the frontier of technology.
 
 The tweet sparked considerable discussion in academic and tech circles. Some agreed. Some pushed back. Some read it as a warning to academia; others as a pessimistic verdict on humanity.
