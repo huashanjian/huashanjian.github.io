@@ -3,7 +3,6 @@ title: "From Gradient Descent to Reinforcement Learning: A Framework for Finding
 date: 2025-09-24
 description: "A way to think about research ideas through the dual lenses of gradient descent and reinforcement learning, from solving known problems to exploring new paradigms."
 ---
-# From Gradient Descent to Reinforcement Learning: A Framework for Finding Research Ideas
 
 Let's begin with a scene every graduate student knows too well. It's late at night. Your group meeting is tomorrow. You're staring at a freshly published state-of-the-art (SOTA) paper, and that familiar mixture of admiration and dread has settled in your chest.
 
