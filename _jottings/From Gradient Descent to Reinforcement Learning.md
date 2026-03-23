@@ -40,7 +40,7 @@ $$
 
 There is an explicit $y_{\text{true}}$, a ground-truth coordinate we trust completely, and every experiment is an attempt to move infinitely closer to it.
 
-Getting stuck, however, begins the moment you start questioning the value of that $y_{\text{true}}$ itself, or the relevance of the map as a whole. A different impulse surfaces: rather than perfecting your path through the illuminated terrain, you want to be the person who steps into the unknown and helps draw the map itself.
+The real friction begins, however, the moment you start questioning the value of that $y_{\text{true}}$ itself, or the relevance of the map as a whole. A different impulse surfaces: rather than perfecting your path through the illuminated terrain, you want to be the person who steps into the unknown and helps draw the map itself.
 
 This is the turn from exploitation to exploration. It no longer asks how to minimize distance to a known point. It asks how to maximize cumulative future reward in an unknown world, through trial and error. This is the conceptual core of **Reinforcement Learning (RL)**.
 
@@ -72,7 +72,7 @@ These two states correspond precisely to the two mental models above. "Normal sc
 
 ![Normal science versus paradigm shifts: one brightens the existing map, the other pushes into the unknown](/figures/from-gradient-descent-to-rl/c142cf93275478df1adeff4b82731a96_MD5.jpeg)
 
-Understanding this distinction clarifies where you and your work currently sit. It explains why some people are making the existing light brighter, while others are busy lighting an entirely new lamp.
+Understanding this distinction clarifies where you and your work currently sit. It explains why some people are making the existing light brighter, while others are busy **building** an entirely new lamp.
 
 But before rushing downhill, a more pressing question demands an honest answer.
 
@@ -80,7 +80,7 @@ How do you know that the mountain you are on is worth climbing at all, rather th
 
 When a field becomes intensely competitive and everyone is celebrating improvements to the third decimal place, it usually signals that the gradient across most of the illuminated region has flattened out. A first-rate thinker's instinct is not to walk faster across flat ground, but to question the map itself and look toward the surrounding unknown with genuine curiosity.
 
-The capacity to venture into the unknown is not some mystical form of inspiration. It has traceable sources. It might come from an act of cross-domain appropriation: seizing a concept from evolutionary biology or game theory and applying it to your own field, illuminating corners no one had thought to look in. It might also come from a more internal move, where you pick up a SOTA paper, treat it not as scripture but as a toy, modify its core assumptions, or drop it into an extreme environment it was never designed for, and listen carefully to what you learn as it fails.
+The capacity to venture into the unknown is not some mystical form of inspiration. It has traceable sources. It might come from an act of cross-domain **cross-pollination**: seizing a concept from evolutionary biology or game theory and applying it to your own field, illuminating corners no one had thought to look in. It might also come from a more internal move, where you pick up a SOTA paper, treat it not as scripture but as a toy, modify its core assumptions, or drop it into an extreme environment it was never designed for, and listen carefully to **how it breaks**.
 
 Once you have internalized the habit of reading and redrawing the map, you can throw yourself into problem-solving with genuine confidence, knowing that every step you take is on solid and worthwhile ground.
 
@@ -106,7 +106,7 @@ One approach is to probe the boundaries and target the hardest problems. Scienti
 
 But at a few boundary cases, most famously the precession of Mercury's perihelion, small but stubbornly persistent errors appeared. In those specific regions, $L$ was surprisingly high. Most researchers treated these as minor annoyances to be patched over. Einstein, however, recognized that these outliers were precisely where the existing theory was most exposed. Compared to the near-zero $L$ everywhere else, these boundary cases represented a steep, conspicuous gradient. Rather than applying a patch, he followed that gradient to its source and rebuilt physics from the ground up.
 
-A second approach is to probe adversarial environments and excavate hidden vulnerabilities. Many SOTA models resemble hothouse flowers: impressive under controlled conditions, fragile when the environment turns hostile. Your task is to engineer the storm. Standard benchmarks paint too clean a picture. Design a "hell-mode" evaluation setting. Transform the loss from $L_{\text{task}}$ to $L_{\text{new}} = L_{\text{task}} \mid \text{adversarial conditions}$. When a model performs radically differently under these two regimes, you have found a legitimate direction in robustness research.
+A second approach is to probe adversarial environments and **expose** hidden vulnerabilities. Many SOTA models resemble hothouse flowers: impressive under controlled conditions, fragile when the environment turns hostile. Your task is to engineer the storm. Standard benchmarks paint too clean a picture. Design a "hell-mode" evaluation setting. Transform the loss from $L_{\text{task}}$ to $L_{\text{new}} = L_{\text{task}} \mid \text{adversarial conditions}$. When a model performs radically differently under these two regimes, you have found a legitimate direction in robustness research.
 
 ![Manufacture a harsher evaluation regime to expose vulnerabilities that standard benchmarks hide](/figures/from-gradient-descent-to-rl/4e7e557be5ca7d1c47036268ab9a320e_MD5.jpeg)
 
@@ -170,7 +170,7 @@ Through the methods above, you may now have a list of seemingly viable ideas. Bu
 
 Faced with both options, how do you choose? This is the classic exploration-exploitation dilemma, and it appears in research just as it does in RL. Among the many ideas on your list, how do you judge which one is truly worth pursuing?
 
-This question enters a domain that is more experience-dependent. We usually call it **Taste**.
+This question **touches on a domain that relies heavily on experience**: what we usually call **Taste**.
 
 Here is a more precise way to think about it. In reinforcement learning, an agent navigating a vast state space can act decisively because it carries an internal **Value Function** (or Q-value). This function does not evaluate the immediate reward of a single action; it estimates the long-term expected return of being in a given state, discounted across future time. Academic Taste is the research analogue of a Value Function. It is not intuition in the mystical sense. It is an evaluation model your mind has trained through years of reading, experimentation, and failure. When you stand before an unexplored idea, your Taste is performing a computation something like: what is the expected return of following this path, across all the effort it will eventually require?
 
@@ -194,7 +194,7 @@ Some ideas have steep apparent slopes but are shallow pits: once filled, the sto
 
 This measures generative potential. When you solve the problem, does it open onto a series of richer, more interesting questions, or does the story simply end? Researchers with strong Taste think like investors: they look for problems that compound. An extensible problem is like finding a door at the edge of the known map. Push it open, and behind it is a new region dense with unexplored gradients, a strong signal that an entire new continent is waiting.
 
-**Executability: can you actually reach it?**
+**Executability: Is it tractable?**
 
 This is a reality check on all grand ambitions. Taste does not live in the clouds. Many incoming graduate students make the mistake of setting their sights immediately on questions like "how do we achieve AGI?" A mature Taste finds the ideal balance point between ambition and execution: choosing, within your actual capacity, the gradient that is simultaneously steepest, deepest, and most extensible.
 
@@ -210,7 +210,7 @@ Research is a long, grinding marathon, typically marked by more failure than suc
 
 ## Phase Three: The RL Mindset, Designing the Reward Function
 
-When you have practiced these techniques and sharpened your Taste, and when you are consistently producing work that matters, a deeper unease may surface some late night. You begin to feel less like someone solving problems and more like someone applying increasingly elaborate patches to a theory that is fundamentally cracking. A more fundamental question surfaces: what if the objective we are optimizing is exactly what is holding us back?
+When you have practiced these techniques and sharpened your Taste, and when you are consistently producing work that matters, a deeper unease may surface **late one night**. You begin to feel less like someone solving problems and more like someone applying increasingly elaborate patches to a theory that is fundamentally cracking. A more fundamental question surfaces: what if the objective we are optimizing is exactly what is holding us back?
 
 This is where paradigm shifts are born. What is needed now is a different mode of thinking entirely. Your attention moves away from the brightness of the light and toward the source of the light. In gradient-descent terms, you are no longer satisfied with finding the steepest $\nabla L$ on the existing map. In reinforcement-learning terms, you are no longer merely optimizing a policy inside a fixed environment. You are interrogating the reward function itself. You want to become the person who defines what counts as illuminated terrain in the first place. Your goal is to propose an entirely new worldview: a new loss function, $L'$, or equivalently, a new reward model for what the field should value.
 
@@ -232,9 +232,9 @@ $$
 
 That was not a more elegant descent. That was a revolution in what it means to descend.
 
-Our era has its own version of this story, and it is worth examining closely. AlexNet's breakthrough in 2012 did not merely improve scores on a benchmark. It revealed a gradient so steep it made the entire field stop breathing. Its implicit objective, $L_{\text{AlexNet}} = 1 - \mathrm{Acc}_{\text{ImageNet}}$, was written into history, and the field flooded in to minimize it.
+Our era has its own version of this story, and it is worth examining closely. AlexNet's breakthrough in 2012 did not merely improve scores on a benchmark. It revealed a gradient so steep it made the entire field **hold its breath**. Its implicit objective, $L_{\text{AlexNet}} = 1 - \mathrm{Acc}_{\text{ImageNet}}$, was written into history, and the field flooded in to minimize it.
 
-But the more important story is what came next. Before ChatGPT, every language model in the industry was grinding the same loss function: next-token prediction, cross-entropy over a vast corpus. The entire field was converging toward a local optimum, and most practitioners did not realize they were stuck. Then OpenAI introduced RLHF, Reinforcement Learning from Human Feedback. In doing so, they effectively told the world: stop fitting the corpus. The new objective is something closer to optimizing for human usefulness and alignment rather than pure next-token likelihood. Here, RL is not just the algorithm they used; it perfectly embodies the conceptual shift in their research approach. They were not merely optimizing better. They were redefining the reward model.
+But the more important story is what came next. Before ChatGPT, every language model in the industry was **chasing** the same loss function: next-token prediction, cross-entropy over a vast corpus. The entire field was converging toward a local optimum, and most practitioners did not realize they were stuck. Then OpenAI introduced RLHF, Reinforcement Learning from Human Feedback. In doing so, they effectively told the world: stop fitting the corpus. The new objective is something closer to optimizing for human usefulness and alignment rather than pure next-token likelihood. Here, RL is not just the algorithm they used; it perfectly embodies the conceptual shift in their research approach. They were not merely optimizing better. They were redefining the reward model.
 
 This was not a more efficient path to the same destination. It was a different destination entirely. The wave of development that followed, spanning hundreds of competing models and reorienting the priorities of an entire industry, is what a paradigm shift looks like from the inside. The old map was not improved. It was replaced.
 
