@@ -12,22 +12,53 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+      - name: Restore Previous Stats Cache
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p google_scholar_crawler/results
+          if git ls-remote --exit-code --heads origin google-scholar-stats >/dev/null 2>&1; then
+            git fetch --depth=1 origin google-scholar-stats
+            git show origin/google-scholar-stats:gs_data.json > google_scholar_crawler/results/gs_data.json
+            git show origin/google-scholar-stats:gs_data_shieldsio.json > google_scholar_crawler/results/gs_data_shieldsio.json
+          fi
       - name: Install Reqs
         run: |
           sudo apt-get update
           sudo apt-get install -y python3-setuptools
       - name: Run
+        shell: bash
         run: |
+          set -euo pipefail
           cd ./google_scholar_crawler
-          pip3 install -r requirements.txt
+          python3 -m pip install -r requirements.txt
           python3 main.py
-          cd ./results
-          git init
-          git config --local user.name "${GITHUB_ACTOR}"
-          export remote_repo="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
-          git add *.json
-          git commit -m "Updated Citation Data"
-          git push "${remote_repo}" HEAD:google-scholar-stats --force
+      - name: Publish Stats Branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          remote_repo="https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          publish_dir="$(mktemp -d)"
+
+          if git ls-remote --exit-code --heads "$remote_repo" google-scholar-stats >/dev/null 2>&1; then
+            git clone --depth 1 --branch google-scholar-stats "$remote_repo" "$publish_dir"
+          else
+            git init "$publish_dir"
+            git -C "$publish_dir" checkout -b google-scholar-stats
+          fi
+
+          cp google_scholar_crawler/results/*.json "$publish_dir"/
+          git -C "$publish_dir" config user.name "${GITHUB_ACTOR}"
+          git -C "$publish_dir" config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          git -C "$publish_dir" add *.json
+
+          if git -C "$publish_dir" diff --cached --quiet; then
+            echo "No citation data changes to publish."
+            exit 0
+          fi
+
+          git -C "$publish_dir" commit -m "Updated citation data"
+          git -C "$publish_dir" push "$remote_repo" HEAD:google-scholar-stats
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
