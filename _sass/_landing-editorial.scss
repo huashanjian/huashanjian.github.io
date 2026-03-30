@@ -46,6 +46,28 @@
   line-height: 0.95;
   letter-spacing: -0.04em;
   color: var(--ink);
+  text-wrap: balance;
+}
+
+.hero__title--balanced {
+  max-width: min(13.5ch, 100%);
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.has-pretext-hero .hero__title--balanced .hero__title-line {
+  opacity: 0;
+  transform: translateY(0.55rem);
+  animation: hero-line-rise 620ms var(--ease-out) forwards;
+  animation-delay: calc(110ms + (var(--hero-line-index, 0) * 85ms));
+}
+
+.hero__title--motionless .hero__title-line {
+  opacity: 1;
+  transform: none;
+  animation: none;
 }
 
 .hero__summary {
@@ -81,6 +103,18 @@
   color: var(--ink-faint);
   font-size: 0.9rem;
   font-style: italic;
+}
+
+@keyframes hero-line-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Portrait card */
