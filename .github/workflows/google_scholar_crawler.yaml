@@ -34,6 +34,8 @@ jobs:
           cd ./google_scholar_crawler
           python3 -m pip install -r requirements.txt
           python3 main.py
+        env:
+          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
       - name: Publish Stats Branch
         shell: bash
         run: |
@@ -60,5 +62,3 @@ jobs:
 
           git -C "$publish_dir" commit -m "Updated citation data"
           git -C "$publish_dir" push "$remote_repo" HEAD:google-scholar-stats
-        env:
-          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
