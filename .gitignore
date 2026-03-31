@@ -3,3 +3,5 @@ push.sh
 .DS_Store
 .bundle/
 vendor/
+.claude/
+AGENTS.md
